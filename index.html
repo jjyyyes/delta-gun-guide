@@ -1,0 +1,1520 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>三角洲行动 S10 裂变赛季 枪械配装推荐 | 三角洲行动枪械库</title>
+  <style>
+    :root {
+      --bg-primary: #0a0e14;
+      --bg-secondary: #111820;
+      --bg-card: #161c26;
+      --bg-card-hover: #1c2432;
+      --accent: #f0a050;
+      --t0-color: #ff6b35;
+      --t05-color: #f0a050;
+      --t1-color: #88b4d1;
+      --build-low: #4ade80;
+      --build-mid: #60a5fa;
+      --build-max: #f472b6;
+      --build-netizen: #c084fc;
+      --text: #e0e0e0;
+      --text-secondary: #8899aa;
+      --text-muted: #5a6a7a;
+      --border: #222a36;
+      --radius: 10px;
+      --radius-sm: 6px;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+      background: var(--bg-primary); color: var(--text); line-height: 1.6; min-height: 100vh;
+    }
+    body::before {
+      content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+      background: radial-gradient(ellipse at 20% 20%, rgba(240,160,80,0.03) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 80%, rgba(255,107,53,0.04) 0%, transparent 50%);
+      pointer-events: none; z-index: 0;
+    }
+    .header { position: sticky; top: 0; z-index: 100; background: rgba(10,14,20,0.95); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); padding: 0 24px; }
+    .header-inner { max-width: 1400px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--text); }
+    .logo-icon { width: 38px; height: 38px; background: linear-gradient(135deg, var(--accent), var(--t0-color)); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 20px; }
+    .logo-text { font-size: 18px; font-weight: 700; letter-spacing: -0.3px; }
+    .logo-text span { color: var(--accent); }
+    .nav-links { display: flex; gap: 8px; }
+    .nav-links a { color: var(--text-secondary); text-decoration: none; padding: 8px 16px; border-radius: 20px; font-size: 14px; font-weight: 500; transition: all 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--text); background: var(--bg-card); }
+    .hero { position: relative; z-index: 1; max-width: 1400px; margin: 0 auto; padding: 60px 24px 40px; text-align: center; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 6px; padding: 6px 16px; border-radius: 20px; background: rgba(240,160,80,0.1); border: 1px solid rgba(240,160,80,0.2); color: var(--accent); font-size: 13px; font-weight: 600; margin-bottom: 24px; }
+    .hero-title { font-size: 48px; font-weight: 800; letter-spacing: -1px; margin-bottom: 16px; line-height: 1.2; background: linear-gradient(135deg, #fff 0%, #aabbbc 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .hero-subtitle { font-size: 17px; color: var(--text-secondary); max-width: 650px; margin: 0 auto 32px; line-height: 1.7; }
+    .hero-stats { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; }
+    .hero-stat { text-align: center; }
+    .hero-stat .num { font-size: 32px; font-weight: 700; color: var(--accent); display: block; }
+    .hero-stat .label { font-size: 13px; color: var(--text-muted); }
+    .main { position: relative; z-index: 1; max-width: 1400px; margin: 0 auto; padding: 0 24px 80px; }
+    .tier-filters { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 40px; }
+    .tier-btn { padding: 10px 28px; border-radius: 25px; border: 1px solid var(--border); background: var(--bg-card); color: var(--text-secondary); font-size: 15px; font-weight: 600; cursor: pointer; transition: all 0.25s; }
+    .tier-btn:hover { border-color: var(--text-muted); color: var(--text); transform: translateY(-1px); }
+    .tier-btn.active { border-color: var(--accent); color: var(--accent); background: rgba(240,160,80,0.08); box-shadow: 0 0 20px rgba(240,160,80,0.1); }
+    .tier-btn .count { margin-left: 6px; font-size: 12px; opacity: 0.7; }
+    .search-wrap { display: flex; justify-content: center; margin-bottom: 36px; }
+    .search-input { width: 100%; max-width: 480px; padding: 12px 20px; border-radius: 25px; border: 1px solid var(--border); background: var(--bg-card); color: var(--text); font-size: 14px; outline: none; transition: all 0.2s; }
+    .search-input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(240,160,80,0.1); }
+    .search-input::placeholder { color: var(--text-muted); }
+    .weapon-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)); gap: 20px; }
+    @media (max-width: 440px) { .weapon-grid { grid-template-columns: 1fr; } }
+    .weapon-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; cursor: pointer; transition: all 0.3s; position: relative; overflow: hidden; }
+    .weapon-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(circle at 80% 0%, rgba(240,160,80,0.04) 0%, transparent 60%); opacity: 0; transition: opacity 0.3s; }
+    .weapon-card:hover { border-color: rgba(240,160,80,0.3); transform: translateY(-3px); background: var(--bg-card-hover); box-shadow: 0 12px 40px rgba(0,0,0,0.3); }
+    .weapon-card:hover::before { opacity: 1; }
+    .card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px; position: relative; }
+    .card-weapon-type { font-size: 11px; font-weight: 600; letter-spacing: 1.5px; color: var(--text-muted); }
+    .card-tier-badge { padding: 4px 12px; border-radius: 12px; font-size: 12px; font-weight: 700; color: #fff; }
+    .tier-t0 { background: var(--t0-color); }
+    .tier-t05 { background: var(--t05-color); }
+    .tier-t1 { background: var(--t1-color); color: #111; }
+    .card-weapon-name { font-size: 28px; font-weight: 800; margin-bottom: 4px; letter-spacing: -0.5px; }
+    .card-weapon-nickname { font-size: 13px; color: var(--text-secondary); margin-bottom: 16px; }
+    .card-stats-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 20px; }
+    .card-stat { text-align: center; padding: 10px 6px; background: rgba(255,255,255,0.02); border-radius: var(--radius-sm); border: 1px solid rgba(255,255,255,0.04); }
+    .card-stat .stat-num { font-size: 20px; font-weight: 700; color: var(--accent); }
+    .card-stat .stat-label { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+    .card-build-pills { display: flex; gap: 6px; margin-bottom: 16px; flex-wrap: wrap; }
+    .card-build-pill { font-size: 11px; padding: 3px 10px; border-radius: 10px; font-weight: 600; white-space: nowrap; }
+    .card-build-pill.low { background: rgba(74,222,128,0.1); color: var(--build-low); border: 1px solid rgba(74,222,128,0.2); }
+    .card-build-pill.mid { background: rgba(96,165,250,0.1); color: var(--build-mid); border: 1px solid rgba(96,165,250,0.2); }
+    .card-build-pill.max { background: rgba(244,114,182,0.1); color: var(--build-max); border: 1px solid rgba(244,114,182,0.2); }
+    .card-build-pill.netizen { background: rgba(192,132,252,0.1); color: var(--build-netizen); border: 1px solid rgba(192,132,252,0.2); }
+    .card-footer { display: flex; justify-content: space-between; align-items: center; padding-top: 14px; border-top: 1px solid var(--border); }
+    .card-mode-tags { display: flex; gap: 6px; }
+    .card-mode-tag { font-size: 11px; padding: 3px 10px; border-radius: 10px; background: rgba(255,255,255,0.04); color: var(--text-secondary); }
+    .card-detail-btn { font-size: 13px; color: var(--accent); font-weight: 600; text-decoration: none; padding: 4px 12px; border-radius: 15px; transition: background 0.2s; }
+    .card-detail-btn:hover { background: rgba(240,160,80,0.1); }
+    .modal-overlay { position: fixed; inset: 0; z-index: 200; background: rgba(0,0,0,0.8); backdrop-filter: blur(8px); display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.3s; padding: 20px; }
+    .modal-overlay.open { opacity: 1; pointer-events: all; }
+    .modal { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 16px; max-width: 680px; width: 100%; max-height: 85vh; overflow-y: auto; padding: 32px; position: relative; }
+    .modal-close { position: absolute; top: 16px; right: 16px; width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--border); background: var(--bg-card); color: var(--text-secondary); font-size: 18px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s; }
+    .modal-close:hover { background: var(--bg-card-hover); color: var(--text); }
+    .modal-weapon-header { margin-bottom: 24px; }
+    .modal-weapon-info { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .modal-weapon-info h2 { font-size: 24px; font-weight: 800; }
+    .modal-build-tag { padding: 4px 12px; border-radius: 12px; font-size: 12px; font-weight: 700; }
+    .modal-weapon-info .nickname { font-size: 15px; color: var(--text-secondary); margin-top: 4px; width: 100%; }
+    .modal-stats-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 10px; margin-bottom: 24px; }
+    .modal-stat-card { text-align: center; padding: 14px 10px; background: rgba(255,255,255,0.02); border-radius: var(--radius-sm); border: 1px solid rgba(255,255,255,0.05); }
+    .modal-stat-card .mstat-num { font-size: 24px; font-weight: 700; color: var(--accent); }
+    .modal-stat-card .mstat-label { font-size: 11px; color: var(--text-muted); margin-top: 4px; }
+    .modal-section-title { font-size: 17px; font-weight: 700; margin-bottom: 14px; padding-bottom: 8px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 8px; }
+    .modal-section-title .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
+    .build-tabs { display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: wrap; }
+    .build-tab { flex: 1; min-width: 90px; padding: 10px 8px; border-radius: var(--radius-sm); border: 1px solid var(--border); background: var(--bg-card); cursor: pointer; text-align: center; transition: all 0.2s; font-size: 12px; }
+    .build-tab:hover { border-color: var(--text-muted); }
+    .build-tab.active.low { border-color: var(--build-low); background: rgba(74,222,128,0.08); }
+    .build-tab.active.mid { border-color: var(--build-mid); background: rgba(96,165,250,0.08); }
+    .build-tab.active.max { border-color: var(--build-max); background: rgba(244,114,182,0.08); }
+    .build-tab.active.netizen { border-color: var(--build-netizen); background: rgba(192,132,252,0.08); }
+    .build-tab .build-level { font-size: 13px; font-weight: 700; }
+    .build-tab .build-cost { font-size: 10px; color: var(--text-muted); margin-top: 2px; }
+    .build-tab.active.low .build-level { color: var(--build-low); }
+    .build-tab.active.mid .build-level { color: var(--build-mid); }
+    .build-tab.active.max .build-level { color: var(--build-max); }
+    .build-tab.active.netizen .build-level { color: var(--build-netizen); }
+    .build-code-block { display: flex; align-items: center; gap: 10px; padding: 12px 16px; background: rgba(0,0,0,0.3); border-radius: var(--radius-sm); border: 1px solid var(--border); margin-bottom: 20px; }
+    .build-code-block code { font-family: "JetBrains Mono", "Fira Code", monospace; font-size: 13px; color: var(--accent); word-break: break-all; flex: 1; }
+    .build-code-block .no-code { color: var(--text-muted); font-style: italic; }
+    .copy-btn { padding: 6px 14px; border-radius: 15px; border: 1px solid var(--accent); background: rgba(240,160,80,0.1); color: var(--accent); cursor: pointer; font-size: 12px; font-weight: 600; white-space: nowrap; transition: all 0.2s; }
+    .copy-btn:hover { background: rgba(240,160,80,0.2); }
+    .copy-btn.copied { background: #2ecc71; border-color: #2ecc71; color: #fff; }
+    .copy-btn.hidden { visibility: hidden; }
+    .attachment-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; margin-bottom: 24px; }
+    .attachment-item { display: flex; align-items: center; gap: 10px; padding: 10px 14px; border-radius: var(--radius-sm); background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.04); }
+    .attachment-item .att-slot { width: 36px; height: 36px; border-radius: 6px; background: rgba(240,160,80,0.1); display: flex; align-items: center; justify-content: center; font-size: 15px; flex-shrink: 0; }
+    .attachment-item .att-info { flex: 1; min-width: 0; }
+    .attachment-item .att-name { font-size: 13px; font-weight: 600; color: var(--text); }
+    .attachment-item .att-effect { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+    .no-results { text-align: center; padding: 60px 24px; color: var(--text-muted); font-size: 16px; display: none; }
+    .no-results .icon { font-size: 48px; margin-bottom: 12px; }
+    .footer { position: relative; z-index: 1; text-align: center; padding: 40px 24px; border-top: 1px solid var(--border); color: var(--text-muted); font-size: 13px; }
+    .footer a { color: var(--accent); text-decoration: none; }
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg-primary); }
+    ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    .weapon-card { animation: fadeInUp 0.4s ease backwards; }
+    /* === 梯度排行板块 === */
+    .tier-rank-section { display: none; }
+    .tier-rank-section.active { display: block; animation: fadeInUp 0.4s ease; }
+    .tier-rank-group { margin-bottom: 36px; }
+    .tier-rank-header { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 2px solid var(--border); }
+    .tier-rank-badge { padding: 6px 20px; border-radius: 20px; font-size: 15px; font-weight: 800; color: #fff; letter-spacing: 0.5px; }
+    .tier-rank-badge.t0 { background: linear-gradient(135deg, #ff6b35, #ff8f5a); box-shadow: 0 0 20px rgba(255,107,53,0.3); }
+    .tier-rank-badge.t05 { background: linear-gradient(135deg, #f0a050, #f5c07a); box-shadow: 0 0 20px rgba(240,160,80,0.3); color: #1a1a2e; }
+    .tier-rank-badge.t1 { background: linear-gradient(135deg, #88b4d1, #aac7de); box-shadow: 0 0 20px rgba(136,180,209,0.3); color: #1a1a2e; }
+    .tier-rank-desc { font-size: 13px; color: var(--text-muted); }
+    .tier-rank-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; }
+    .tier-rank-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; text-align: center; transition: all 0.25s; cursor: pointer; }
+    .tier-rank-card:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+    .tier-rank-card .weapon-name { font-size: 17px; font-weight: 700; margin-bottom: 4px; }
+    .tier-rank-card .weapon-type { font-size: 11px; color: var(--text-muted); margin-bottom: 8px; }
+    .tier-rank-card .weapon-damage { font-size: 13px; color: var(--accent); }
+    .tier-rank-card .weapon-nickname { font-size: 12px; color: var(--text-secondary); margin-top: 6px; }
+    /* === 改枪码库板块 === */
+    .code-lib-section { display: none; }
+    .code-lib-section.active { display: block; animation: fadeInUp 0.4s ease; }
+    .code-lib-filters { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 24px; align-items: center; }
+    .code-lib-filters .tier-btn { padding: 8px 20px; font-size: 13px; }
+    .code-lib-filters .search-input { max-width: 320px; padding: 8px 16px; font-size: 13px; }
+    .code-lib-table { width: 100%; border-collapse: collapse; margin-bottom: 40px; }
+    .code-lib-table th { text-align: left; padding: 12px 14px; font-size: 12px; font-weight: 700; color: var(--text-muted); letter-spacing: 1px; text-transform: uppercase; border-bottom: 2px solid var(--border); background: var(--bg-card); position: sticky; top: 64px; z-index: 10; }
+    .code-lib-table td { padding: 12px 14px; font-size: 13px; border-bottom: 1px solid rgba(255,255,255,0.03); vertical-align: middle; }
+    .code-lib-table tr:hover { background: rgba(240,160,80,0.03); }
+    .code-lib-table .build-tag { padding: 3px 10px; border-radius: 10px; font-size: 11px; font-weight: 600; white-space: nowrap; }
+    .code-lib-table .build-tag.low { background: rgba(74,222,128,0.1); color: var(--build-low); }
+    .code-lib-table .build-tag.mid { background: rgba(96,165,250,0.1); color: var(--build-mid); }
+    .code-lib-table .build-tag.max { background: rgba(244,114,182,0.1); color: var(--build-max); }
+    .code-lib-table .build-tag.netizen { background: rgba(192,132,252,0.1); color: var(--build-netizen); }
+    .code-lib-table code { font-family: "JetBrains Mono", "Fira Code", monospace; font-size: 12px; color: var(--accent); word-break: break-all; }
+    .code-lib-table .copy-btn-sm { padding: 4px 10px; border-radius: 12px; border: 1px solid var(--accent); background: rgba(240,160,80,0.1); color: var(--accent); cursor: pointer; font-size: 11px; font-weight: 600; transition: all 0.2s; white-space: nowrap; }
+    .code-lib-table .copy-btn-sm:hover { background: rgba(240,160,80,0.25); }
+    .code-lib-table .copy-btn-sm.copied { background: #2ecc71; border-color: #2ecc71; color: #fff; }
+    .code-lib-empty { text-align: center; padding: 60px 24px; color: var(--text-muted); font-size: 15px; display: none; }
+    .latest-section { position: relative; z-index: 1; max-width: 1400px; margin: 0 auto; padding: 0 24px 64px; }
+    .latest-header { display: flex; align-items: end; justify-content: space-between; gap: 20px; margin-bottom: 18px; border-bottom: 1px solid var(--border); padding-bottom: 14px; }
+    .latest-title { font-size: 22px; font-weight: 800; }
+    .latest-meta { font-size: 12px; color: var(--text-muted); text-align: right; }
+    .latest-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; }
+    .latest-card { display: block; min-height: 150px; padding: 18px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--bg-card); color: var(--text); text-decoration: none; transition: all 0.25s; }
+    .latest-card:hover { transform: translateY(-2px); border-color: rgba(240,160,80,0.35); background: var(--bg-card-hover); }
+    .latest-source { display: flex; justify-content: space-between; gap: 12px; color: var(--accent); font-size: 12px; font-weight: 700; margin-bottom: 10px; }
+    .latest-card h3 { font-size: 16px; line-height: 1.45; margin-bottom: 10px; }
+    .latest-card p { color: var(--text-secondary); font-size: 13px; line-height: 1.7; }
+    .latest-empty { padding: 20px; border: 1px dashed var(--border); border-radius: var(--radius); color: var(--text-muted); background: rgba(255,255,255,0.02); }
+    @media (max-width: 640px) {
+      .latest-header { align-items: flex-start; flex-direction: column; }
+      .latest-meta { text-align: left; }
+    }
+    /* === S10 bright season theme === */
+    :root {
+      --bg-primary: #f6fbff;
+      --bg-secondary: #ffffff;
+      --bg-card: #ffffff;
+      --bg-card-hover: #f8fcff;
+      --accent: #ff6f2d;
+      --accent-2: #08a7d8;
+      --accent-3: #33c481;
+      --t0-color: #ff5a3d;
+      --t05-color: #ffb020;
+      --t1-color: #28a6df;
+      --build-low: #14a86b;
+      --build-mid: #1683e6;
+      --build-max: #df3b8f;
+      --build-netizen: #7c55d9;
+      --text: #142033;
+      --text-secondary: #4e6077;
+      --text-muted: #7b8aa0;
+      --border: #d9e5f0;
+      --radius: 8px;
+      --radius-sm: 6px;
+    }
+    body {
+      background:
+        linear-gradient(180deg, #e9f8ff 0%, #f8fbff 34%, #ffffff 100%);
+    }
+    body::before {
+      background:
+        linear-gradient(115deg, rgba(255,111,45,0.13), rgba(8,167,216,0.08) 38%, rgba(51,196,129,0.08) 70%, transparent 100%),
+        repeating-linear-gradient(135deg, rgba(20,32,51,0.03) 0 1px, transparent 1px 18px);
+    }
+    .header {
+      background: rgba(255,255,255,0.82);
+      border-bottom: 1px solid rgba(20,32,51,0.08);
+      box-shadow: 0 10px 30px rgba(41,72,112,0.08);
+    }
+    .logo-icon {
+      color: #fff;
+      background: linear-gradient(135deg, #ff6f2d, #08a7d8);
+      box-shadow: 0 8px 18px rgba(255,111,45,0.22);
+    }
+    .nav-links a {
+      border: 1px solid transparent;
+      border-radius: 10px;
+    }
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: #0f2942;
+      background: #eaf6ff;
+      border-color: #cbe9fb;
+    }
+    .hero {
+      max-width: none;
+      padding: 54px 24px 38px;
+      margin-bottom: 22px;
+      background:
+        linear-gradient(135deg, rgba(255,255,255,0.76), rgba(230,249,255,0.88)),
+        linear-gradient(90deg, rgba(255,111,45,0.13), rgba(8,167,216,0.14), rgba(51,196,129,0.11));
+      border-bottom: 1px solid rgba(20,32,51,0.08);
+    }
+    .hero > * {
+      max-width: 1180px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .hero-badge {
+      background: #fff7ed;
+      border-color: #ffd2ad;
+      color: #c2410c;
+      box-shadow: 0 8px 20px rgba(255,111,45,0.12);
+    }
+    .hero-title,
+    .tier-rank-section h2,
+    .code-lib-section h2 {
+      background: linear-gradient(135deg, #0f2942 0%, #087bb0 48%, #ff6f2d 100%) !important;
+      -webkit-background-clip: text !important;
+      -webkit-text-fill-color: transparent !important;
+      background-clip: text !important;
+      letter-spacing: 0 !important;
+    }
+    .hero-subtitle {
+      color: #3d536b;
+    }
+    .hero-stat {
+      min-width: 132px;
+      padding: 14px 18px;
+      background: rgba(255,255,255,0.82);
+      border: 1px solid rgba(203,233,251,0.95);
+      border-radius: 8px;
+      box-shadow: 0 12px 28px rgba(41,72,112,0.08);
+    }
+    .hero-stat .num {
+      color: #087bb0;
+    }
+    .main {
+      padding-top: 8px;
+    }
+    .tier-btn {
+      border-radius: 10px;
+      background: #ffffff;
+      color: #3d536b;
+      box-shadow: 0 6px 18px rgba(41,72,112,0.06);
+    }
+    .tier-btn:hover {
+      border-color: #9bdaf3;
+      color: #0f2942;
+      background: #f1fbff;
+    }
+    .tier-btn.active {
+      border-color: #08a7d8;
+      color: #075985;
+      background: linear-gradient(180deg, #e6f8ff, #ffffff);
+      box-shadow: 0 10px 24px rgba(8,167,216,0.16);
+    }
+    .search-input {
+      border-radius: 10px;
+      background: #ffffff;
+      color: #142033;
+      box-shadow: 0 8px 22px rgba(41,72,112,0.07);
+    }
+    .search-input:focus {
+      border-color: #08a7d8;
+      box-shadow: 0 0 0 4px rgba(8,167,216,0.13);
+    }
+    .weapon-card,
+    .tier-rank-card,
+    .latest-card,
+    .modal,
+    .attachment-item,
+    .modal-stat-card,
+    .card-stat,
+    .build-tab {
+      box-shadow: 0 12px 30px rgba(41,72,112,0.08);
+    }
+    .weapon-card {
+      border-color: #d8e8f5;
+    }
+    .weapon-card::before {
+      background: linear-gradient(90deg, rgba(255,111,45,0.08), rgba(8,167,216,0.08));
+    }
+    .weapon-card:hover {
+      border-color: #77d6f4;
+      box-shadow: 0 18px 44px rgba(41,72,112,0.14);
+    }
+    .card-stat,
+    .modal-stat-card,
+    .attachment-item {
+      background: #f7fbff;
+      border-color: #dfedf7;
+    }
+    .card-mode-tag {
+      background: #edf7ff;
+      color: #31516f;
+      border: 1px solid #d6ecfb;
+    }
+    .card-detail-btn,
+    .footer a,
+    .latest-source {
+      color: #087bb0;
+    }
+    .card-detail-btn:hover {
+      background: #eaf8ff;
+    }
+    .card-build-pill.low,
+    .code-lib-table .build-tag.low { background: #e7f8ef; border-color: #bcebd3; color: #0f8f57; }
+    .card-build-pill.mid,
+    .code-lib-table .build-tag.mid { background: #e8f3ff; border-color: #badafb; color: #0b73d1; }
+    .card-build-pill.max,
+    .code-lib-table .build-tag.max { background: #fff0f6; border-color: #f8c8dc; color: #c42174; }
+    .card-build-pill.netizen,
+    .card-build-pill.netizen1,
+    .card-build-pill.netizen2,
+    .card-build-pill.netizen3,
+    .code-lib-table .build-tag.netizen,
+    .code-lib-table .build-tag.netizen1,
+    .code-lib-table .build-tag.netizen2,
+    .code-lib-table .build-tag.netizen3 {
+      background: #f2edff;
+      border-color: #d7cafa;
+      color: #6648c2;
+    }
+    .modal-overlay {
+      background: rgba(15,41,66,0.42);
+    }
+    .modal {
+      background: #ffffff;
+      border-color: #cfe4f3;
+    }
+    .modal-close,
+    .copy-btn,
+    .code-lib-table .copy-btn-sm {
+      border-radius: 8px;
+      background: #fff;
+    }
+    .build-code-block {
+      background: #f6fbff;
+      border-color: #d8e8f5;
+    }
+    .build-code-block code,
+    .code-lib-table code {
+      color: #c2410c;
+    }
+    .build-tab {
+      background: #ffffff;
+    }
+    .tier-rank-header {
+      background: #ffffff;
+      border: 1px solid #d8e8f5;
+      border-radius: 8px;
+      padding: 14px;
+    }
+    .tier-rank-card:hover {
+      box-shadow: 0 14px 34px rgba(41,72,112,0.14);
+    }
+    .code-lib-table th {
+      background: #eaf6ff;
+      color: #31516f;
+    }
+    .code-lib-table td {
+      border-bottom-color: #edf3f8;
+    }
+    .code-lib-table tr:hover {
+      background: #f6fbff;
+    }
+    .latest-header {
+      background: #ffffff;
+      border: 1px solid #d8e8f5;
+      border-radius: 8px;
+      padding: 16px 18px;
+      box-shadow: 0 12px 30px rgba(41,72,112,0.08);
+    }
+    .latest-empty {
+      background: #fff9f2;
+      border-color: #ffd2ad;
+      color: #9a4a12;
+    }
+    .footer {
+      background: #ffffff;
+    }
+    @media (max-width: 640px) {
+      .header {
+        padding: 0 14px;
+      }
+      .header-inner {
+        height: auto;
+        align-items: stretch;
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px 0;
+      }
+      .logo {
+        justify-content: center;
+      }
+      .nav-links {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 6px;
+      }
+      .nav-links a {
+        text-align: center;
+        padding: 9px 6px;
+        white-space: nowrap;
+      }
+      .hero {
+        padding-top: 34px;
+      }
+      .hero-title {
+        font-size: 40px;
+        line-height: 1.18;
+      }
+      .hero-stats {
+        gap: 12px;
+      }
+      .hero-stat {
+        min-width: 128px;
+      }
+    }
+    /* === Rich color pass === */
+    :root {
+      --sun: #ffb703;
+      --coral: #ff5a5f;
+      --aqua: #00b4d8;
+      --mint: #2ec4b6;
+      --lime: #7bd88f;
+      --violet: #7c3aed;
+      --ink: #102033;
+    }
+    body {
+      background:
+        radial-gradient(circle at 8% 10%, rgba(255,183,3,0.28), transparent 28%),
+        radial-gradient(circle at 92% 8%, rgba(0,180,216,0.26), transparent 31%),
+        radial-gradient(circle at 18% 82%, rgba(46,196,182,0.20), transparent 32%),
+        linear-gradient(180deg, #fff9e8 0%, #e9fbff 34%, #f7fff4 70%, #fff 100%);
+    }
+    body::before {
+      background:
+        linear-gradient(115deg, rgba(255,90,95,0.12), rgba(255,183,3,0.12) 23%, rgba(0,180,216,0.13) 55%, rgba(123,216,143,0.12) 100%),
+        repeating-linear-gradient(135deg, rgba(16,32,51,0.035) 0 1px, transparent 1px 18px);
+    }
+    .header {
+      background: rgba(255,255,255,0.88);
+      border-bottom: 3px solid transparent;
+      border-image: linear-gradient(90deg, var(--coral), var(--sun), var(--aqua), var(--mint), var(--violet)) 1;
+    }
+    .logo-icon {
+      background: conic-gradient(from 140deg, var(--coral), var(--sun), var(--mint), var(--aqua), var(--violet), var(--coral));
+    }
+    .logo-text span {
+      color: var(--coral);
+    }
+    .nav-links a:nth-child(1).active,
+    .nav-links a:nth-child(1):hover {
+      background: #fff1df;
+      border-color: #ffc77b;
+      color: #b84a00;
+    }
+    .nav-links a:nth-child(2).active,
+    .nav-links a:nth-child(2):hover {
+      background: #eaf8ff;
+      border-color: #91dcf4;
+      color: #075985;
+    }
+    .nav-links a:nth-child(3).active,
+    .nav-links a:nth-child(3):hover {
+      background: #eefaf0;
+      border-color: #afe8bd;
+      color: #167343;
+    }
+    .hero {
+      background:
+        linear-gradient(135deg, rgba(255,255,255,0.78), rgba(255,248,223,0.70) 22%, rgba(227,249,255,0.78) 57%, rgba(237,255,239,0.76)),
+        radial-gradient(circle at 28% 16%, rgba(255,90,95,0.23), transparent 28%),
+        radial-gradient(circle at 72% 22%, rgba(0,180,216,0.25), transparent 30%),
+        radial-gradient(circle at 50% 92%, rgba(255,183,3,0.22), transparent 28%);
+    }
+    .hero-badge {
+      background: linear-gradient(90deg, #fff5db, #fff, #e9fbff);
+      border-color: #ffca6a;
+      color: #b44800;
+    }
+    .hero-title,
+    .tier-rank-section h2,
+    .code-lib-section h2 {
+      background: linear-gradient(100deg, #073b5c 0%, #0088b7 30%, #17a06b 52%, #f59e0b 72%, #e5484d 100%) !important;
+      -webkit-background-clip: text !important;
+      -webkit-text-fill-color: transparent !important;
+      background-clip: text !important;
+    }
+    .hero-subtitle span {
+      display: inline-block;
+      padding: 6px 12px;
+      margin-top: 6px;
+      border-radius: 8px;
+      background: #fff0df;
+      color: #c2410c !important;
+      border: 1px solid #ffd2a1;
+    }
+    .hero-stat:nth-child(1) {
+      border-color: #ffc2bf;
+      background: linear-gradient(180deg, #fff, #fff1f0);
+    }
+    .hero-stat:nth-child(2) {
+      border-color: #9fe4f8;
+      background: linear-gradient(180deg, #fff, #eafbff);
+    }
+    .hero-stat:nth-child(3) {
+      border-color: #b8edc3;
+      background: linear-gradient(180deg, #fff, #effcf1);
+    }
+    .hero-stat:nth-child(4) {
+      border-color: #ffd989;
+      background: linear-gradient(180deg, #fff, #fff8e5);
+    }
+    .hero-stat:nth-child(1) .num { color: var(--coral); }
+    .hero-stat:nth-child(2) .num { color: var(--aqua); }
+    .hero-stat:nth-child(3) .num { color: #15945c; }
+    .hero-stat:nth-child(4) .num { color: #d97706; }
+    .main,
+    .latest-section,
+    .tier-rank-section,
+    .code-lib-section {
+      background:
+        linear-gradient(135deg, rgba(255,255,255,0.52), rgba(233,251,255,0.48)),
+        repeating-linear-gradient(135deg, rgba(0,180,216,0.045) 0 1px, transparent 1px 20px);
+      border-radius: 0;
+    }
+    .tier-filters {
+      padding: 14px;
+      border: 1px solid rgba(216,232,245,0.88);
+      border-radius: 12px;
+      background: rgba(255,255,255,0.72);
+      box-shadow: 0 14px 34px rgba(41,72,112,0.08);
+    }
+    .tier-btn[data-tier="T0"].active,
+    .tier-btn[data-tier="T0"]:hover {
+      background: #fff1f0;
+      border-color: #ffaaa6;
+      color: #c13e34;
+    }
+    .tier-btn[data-tier="T0.5"].active,
+    .tier-btn[data-tier="T0.5"]:hover {
+      background: #fff8df;
+      border-color: #ffd776;
+      color: #9a5a00;
+    }
+    .tier-btn[data-tier="T1"].active,
+    .tier-btn[data-tier="T1"]:hover {
+      background: #eafbff;
+      border-color: #91dcf4;
+      color: #075985;
+    }
+    .weapon-card {
+      border-width: 1px;
+      background: linear-gradient(180deg, #ffffff, #fbfdff);
+      border-top-width: 5px;
+    }
+    .weapon-card[data-tier="T0"] {
+      border-top-color: var(--coral);
+      box-shadow: 0 18px 38px rgba(255,90,95,0.11), 0 10px 28px rgba(41,72,112,0.06);
+    }
+    .weapon-card[data-tier="T0.5"] {
+      border-top-color: var(--sun);
+      box-shadow: 0 18px 38px rgba(255,183,3,0.12), 0 10px 28px rgba(41,72,112,0.06);
+    }
+    .weapon-card[data-tier="T1"] {
+      border-top-color: var(--aqua);
+      box-shadow: 0 18px 38px rgba(0,180,216,0.11), 0 10px 28px rgba(41,72,112,0.06);
+    }
+    .weapon-card[data-tier="T0"] .card-weapon-name { color: #bd332f; }
+    .weapon-card[data-tier="T0.5"] .card-weapon-name { color: #9a5a00; }
+    .weapon-card[data-tier="T1"] .card-weapon-name { color: #075985; }
+    .tier-t0 {
+      background: linear-gradient(135deg, #ff4d4f, #ff8a45);
+    }
+    .tier-t05 {
+      background: linear-gradient(135deg, #ffc53d, #ffec99);
+      color: #5c3700;
+    }
+    .tier-t1 {
+      background: linear-gradient(135deg, #00a6d6, #75e1ff);
+      color: #06324a;
+    }
+    .card-stat:nth-child(1),
+    .modal-stat-card:nth-child(1) {
+      background: #fff2f0;
+      border-color: #ffc6bd;
+    }
+    .card-stat:nth-child(2),
+    .modal-stat-card:nth-child(2) {
+      background: #eafbff;
+      border-color: #a9e5f7;
+    }
+    .card-stat:nth-child(3),
+    .modal-stat-card:nth-child(3) {
+      background: #fff8df;
+      border-color: #ffde88;
+    }
+    .card-stat .stat-num,
+    .modal-stat-card .mstat-num {
+      color: inherit;
+    }
+    .card-stat:nth-child(1) .stat-num,
+    .modal-stat-card:nth-child(1) .mstat-num { color: var(--coral); }
+    .card-stat:nth-child(2) .stat-num,
+    .modal-stat-card:nth-child(2) .mstat-num { color: var(--aqua); }
+    .card-stat:nth-child(3) .stat-num,
+    .modal-stat-card:nth-child(3) .mstat-num { color: #d97706; }
+    .latest-header {
+      border-top: 5px solid var(--mint);
+      background: linear-gradient(135deg, #ffffff, #f2fff6 45%, #eafbff);
+    }
+    .latest-card:nth-child(3n+1) { border-top: 5px solid var(--coral); }
+    .latest-card:nth-child(3n+2) { border-top: 5px solid var(--aqua); }
+    .latest-card:nth-child(3n) { border-top: 5px solid var(--mint); }
+    .code-lib-table th:nth-child(1) { background: #fff1f0; }
+    .code-lib-table th:nth-child(2) { background: #fff8df; }
+    .code-lib-table th:nth-child(3) { background: #eafbff; }
+    .code-lib-table th:nth-child(4) { background: #effcf1; }
+    .code-lib-table th:nth-child(5) { background: #f2edff; }
+    .code-lib-table th:nth-child(6) { background: #fff1f7; }
+    .modal {
+      border-top: 6px solid var(--aqua);
+      background:
+        linear-gradient(180deg, rgba(234,251,255,0.66), rgba(255,255,255,1) 180px),
+        #fff;
+    }
+    .modal-section-title .dot {
+      background: linear-gradient(135deg, var(--coral), var(--sun), var(--aqua));
+    }
+    .attachment-item:nth-child(4n+1) .att-slot { background: #fff1f0; }
+    .attachment-item:nth-child(4n+2) .att-slot { background: #eafbff; }
+    .attachment-item:nth-child(4n+3) .att-slot { background: #effcf1; }
+    .attachment-item:nth-child(4n) .att-slot { background: #fff8df; }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="#" class="logo"><div class="logo-icon">🔫</div><div class="logo-text">三角洲行动<span>S10枪械库</span></div></a>
+      <div class="nav-links"><a href="#" class="active" data-section="builds">S10配装</a><a href="#" data-section="tier">梯度排行</a><a href="#" data-section="codes">改枪码库</a></div>
+    </div>
+  </header>
+  <section class="hero">
+    <div class="hero-badge">🔄 S10 裂变赛季 · 自动更新情报</div>
+    <h1 class="hero-title">三角洲行动 S10 裂变赛季枪械配装指南</h1>
+    <p class="hero-subtitle">
+      基于社区大数据与职业赛场数据，精选 S10赛季 T0~T1 梯队最强枪械，<br>
+      每把枪提供低配/中配/满改/网友推荐共6套方案，助你快速冲分。<br>
+      <span style="color:var(--accent);font-weight:600;">🆕 新增 T2/T3 下级替代方案，新手零压力上手！</span>
+    </p>
+    <div class="hero-stats">
+      <div class="hero-stat"><span class="num">22</span><span class="label">精选枪械</span></div>
+      <div class="hero-stat"><span class="num">132</span><span class="label">配装方案</span></div>
+      <div class="hero-stat"><span class="num">6</span><span class="label">方案/每枪</span></div>
+      <div class="hero-stat"><span class="num">一键</span><span class="label">复制改枪码</span></div>
+    </div>
+  </section>
+  <main class="main" id="build-section">
+    <div class="tier-filters" id="tier-section">
+      <button class="tier-btn active" data-tier="all">全部 <span class="count">22</span></button>
+      <button class="tier-btn" data-tier="T0">T0 版本答案 <span class="count">4</span></button>
+      <button class="tier-btn" data-tier="T0.5">T0.5 强力竞争 <span class="count">6</span></button>
+      <button class="tier-btn" data-tier="T1">T1 可靠主力 <span class="count">9</span></button>
+    </div>
+    <div class="search-wrap">
+      <input type="text" class="search-input" id="searchInput" placeholder="🔍 搜索枪械名称、类型、配件、改枪码...">
+    </div>
+    <div class="weapon-grid" id="weaponGrid"></div>
+    <div class="no-results" id="noResults">
+      <div class="icon">🔍</div>
+      <p>没有找到匹配的枪械</p>
+    </div>
+  </main>
+  <section class="latest-section" id="latestSection">
+    <div class="latest-header">
+      <div>
+        <div class="latest-title">最新情报</div>
+        <div style="font-size:13px;color:var(--text-secondary);margin-top:4px;">自动抓取官方公告、版本更新和社区资讯，便于后续校准配装数据。</div>
+      </div>
+      <div class="latest-meta" id="latestMeta">正在读取更新数据...</div>
+    </div>
+    <div class="latest-grid" id="latestGrid">
+      <div class="latest-empty">暂无自动更新数据。配置 config/sources.json 后运行 npm run update:data 即可生成。</div>
+    </div>
+  </section>
+  <!-- 梯度排行板块 -->
+  <section class="tier-rank-section" id="tierRankSection" style="max-width:1400px;margin:0 auto;padding:0 24px 80px;display:none;">
+    <div style="text-align:center;margin-bottom:36px;">
+      <h2 style="font-size:32px;font-weight:800;letter-spacing:-0.5px;background:linear-gradient(135deg,#fff 0%,#aabbbc 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:10px;">S10赛季武器梯度排行榜</h2>
+      <p style="color:var(--text-secondary);font-size:14px;">基于社区大数据与职业赛场表现综合评定，仅供参考</p>
+    </div>
+    <div id="tierRankContent"></div>
+  </section>
+  <!-- 改枪码库板块 -->
+  <section class="code-lib-section" id="codeLibSection" style="max-width:1400px;margin:0 auto;padding:0 24px 80px;display:none;">
+    <div style="text-align:center;margin-bottom:28px;">
+      <h2 style="font-size:32px;font-weight:800;letter-spacing:-0.5px;background:linear-gradient(135deg,#fff 0%,#aabbbc 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:10px;">改枪码库</h2>
+      <p style="color:var(--text-secondary);font-size:14px;">收录全部 22 把枪械、132 套配装的改枪分享码，点击即可复制</p>
+    </div>
+    <div class="code-lib-filters" id="codeLibFilters">
+      <button class="tier-btn active" data-tier="all" onclick="filterCodeLib('all')">全部 <span class="count" id="codeCountAll">132</span></button>
+      <button class="tier-btn" data-tier="T0" onclick="filterCodeLib('T0')">T0 <span class="count" id="codeCountT0">24</span></button>
+      <button class="tier-btn" data-tier="T0.5" onclick="filterCodeLib('T0.5')">T0.5 <span class="count" id="codeCountT05">36</span></button>
+      <button class="tier-btn" data-tier="T1" onclick="filterCodeLib('T1')">T1 <span class="count" id="codeCountT1">54</span></button>
+      <input type="text" class="search-input" id="codeLibSearch" placeholder="🔍 搜索枪械名称、配件..." style="max-width:280px;padding:8px 16px;font-size:13px;" oninput="filterCodeLib(__curTier)">
+    </div>
+    <div style="overflow-x:auto;border-radius:var(--radius);border:1px solid var(--border);background:var(--bg-card);">
+      <table class="code-lib-table" id="codeLibTable">
+        <thead><tr>
+          <th style="min-width:90px;">梯度</th>
+          <th style="min-width:90px;">枪械</th>
+          <th style="min-width:90px;">配装类型</th>
+          <th style="min-width:80px;">成本</th>
+          <th style="min-width:220px;">改枪码</th>
+          <th style="min-width:60px;">操作</th>
+        </tr></thead>
+        <tbody id="codeLibBody"></tbody>
+      </table>
+    </div>
+    <div class="code-lib-empty" id="codeLibEmpty">没有找到匹配的改枪码</div>
+  </section>
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal" id="modal">
+      <button class="modal-close" onclick="closeModal()">✕</button>
+      <div class="modal-body" id="modalBody"></div>
+    </div>
+  </div>
+  <footer class="footer">
+    <p>三角洲行动 S10 枪械配装指南 · 数据来源：社区实测与职业赛场数据 · 仅供玩家参考</p>
+    <p style="margin-top:4px;">Made with ❤️ · <a href="#">三角洲行动枪械库</a></p>
+  </footer>
+<script>
+// ==================== WEAPON DATA - S10 season, 22 weapons, 6 builds each ====================
+const weapons = [
+
+
+  // ============ S10 新武器 ============
+  // SVCH 精确射手步枪 - T0
+  {
+    id: "svch", name: "SVCH", nickname: "S10新枪·连狙天花板", type: "精确射手步枪", tier: "T0",
+    damage: 58, range: "100m", fireRate: 450,
+    modes: ["绝密模式", "中远距离", "架点防守"],
+    scenario: "S10裂变赛季新武器，7.62口径连狙，SVD上位替代。后坐力大幅优化，中远距离精确打击强势。",
+    baseStats: { damage: 58, range: "100m", fireRate: "450", recoil: "中等", mobility: "中等", magazine: "20" },
+    tips: "S10赛季T0武器，后坐力从难压变为可控。适合二、三号位补枪，中远距离强势。",
+    builds: [
+      { level: "上交丐版", key: "low", cost: "≈30万", code: "6KFCU9S0C2C56U6BB8FNO", note: "金枪客任务上交用", attachments: [ {slot:"🔇",name:"标准制退器",effect:"后坐降低"},{slot:"🔫",name:"标准枪管",effect:"基础精度"},{slot:"✋",name:"标准握把",effect:"基础操控"},{slot:"📦",name:"20发弹匣",effect:"基础"}] },
+      { level: "作战方案", key: "mid", cost: "≈75万", code: "6KFCUAC0C2C56U6BB8FNO", note: "金枪客任务作战用", attachments: [ {slot:"🔇",name:"制退器",effect:"后坐控制"},{slot:"🔫",name:"长枪管",effect:"射程+精度"},{slot:"✋",name:"精确握把",effect:"瞄准稳定"},{slot:"📦",name:"25发扩容",effect:"续航"},{slot:"🔭",name:"6倍镜",effect:"中远瞄准"}] },
+      { level: "满改", key: "max", cost: "≈100万", code: "6KFCUAC0C2C56U6BB8FNO", note: "中远距离压制", attachments: [ {slot:"🔇",name:"制退器",effect:"后坐-30%"},{slot:"🔫",name:"狙击长枪管",effect:"射程+20%"},{slot:"✋",name:"精确握把",effect:"连续点射稳定"},{slot:"📐",name:"轻型脚架",effect:"架枪后坐清零"},{slot:"📦",name:"30发扩容",effect:"持续火力"},{slot:"🔭",name:"8倍弹道镜",effect:"远距离精准"},{slot:"🎯",name:"狙击枪托",effect:"稳定性MAX"}] },
+      { level: "网友推荐①", key: "netizen1", cost: "≈60万", code: "6KFCUAC0C2C56U6BB8FNO", note: "网友@连狙高手 · 平衡型", attachments: [ {slot:"🔇",name:"制退器",effect:"后坐控制"},{slot:"🔫",name:"长枪管",effect:"中距优化"},{slot:"✋",name:"斜角握把",effect:"开镜+操控"},{slot:"📦",name:"25发弹匣",effect:"平衡"},{slot:"🔭",name:"4倍镜",effect:"中距快速"}] },
+      { level: "网友推荐②", key: "netizen2", cost: "≈85万", code: "6KFCUAC0C2C56U6BB8FNO", note: "网友@架点大师 · 防守型", attachments: [ {slot:"🔇",name:"重型制退器",effect:"后坐极低"},{slot:"🔫",name:"狙击长枪管",effect:"射程MAX"},{slot:"📐",name:"轻型脚架",effect:"架枪稳定"},{slot:"📦",name:"30发扩容",effect:"持续输出"},{slot:"🔭",name:"12倍镜",effect:"超远架点"}] },
+      { level: "网友推荐③", key: "netizen3", cost: "≈45万", code: "6KFCU9S0C2C56U6BB8FNO", note: "网友@新手连狙 · 入门型", attachments: [ {slot:"🔇",name:"标准制退器",effect:"后坐降低"},{slot:"🔫",name:"标准枪管",effect:"基础"},{slot:"✋",name:"垂直握把",effect:"后坐控制"},{slot:"📦",name:"20发弹匣",effect:"基础"},{slot:"🔭",name:"红点+3倍",effect:"近中兼顾"}] }
+    ]
+  },
+  // RM277 突击步枪 - T0
+  {
+    id: "rm277", name: "RM277", nickname: "S10新枪·中距稳定", type: "突击步枪", tier: "T0",
+    damage: 38, range: "60m", fireRate: 750,
+    modes: ["绝密模式", "中距离", "稳定输出"],
+    scenario: "S10裂变赛季新武器，6.8口径，胸腹同伤机制，中远距离稳定输出。准心跳动优化，填补中远距离生态位。",
+    baseStats: { damage: 38, range: "60m", fireRate: "750", recoil: "低", mobility: "中等", magazine: "30" },
+    tips: "S10赛季T0武器，胸腹同伤机制，中远距离作战强势。搭配6.8子弹，伤害稳定。",
+    builds: [
+      { level: "上交丐版", key: "low", cost: "≈30万", code: "6KFCTUS0C2C56U6BB8FNO", note: "金枪客任务上交用", attachments: [ {slot:"🔇",name:"消焰器",effect:"隐蔽"},{slot:"🔫",name:"标准枪管",effect:"基础"},{slot:"✋",name:"标准握把",effect:"基础操控"},{slot:"📦",name:"30发弹匣",effect:"基础"}] },
+      { level: "作战方案", key: "mid", cost: "≈75万", code: "6KFCU2K0C2C56U6BB8FNO", note: "金枪客任务作战用", attachments: [ {slot:"🔇",name:"制退器",effect:"后坐控制"},{slot:"🔫",name:"长枪管",effect:"射程+精度"},{slot:"✋",name:"斜角握把",effect:"操控+后坐"},{slot:"📦",name:"30发快速弹匣",effect:"换弹快"},{slot:"🔭",name:"3倍镜",effect:"中距瞄准"}] },
+      { level: "满改", key: "max", cost: "≈100万", code: "6KFCU2K0C2C56U6BB8FNO", note: "中距稳定输出", attachments: [ {slot:"🔇",name:"FFC双流制退器",effect:"连射极稳"},{slot:"🔫",name:"精准长枪管",effect:"射程+15%"},{slot:"✋",name:"实用斜角握把",effect:"水平后坐-15%"},{slot:"📦",name:"40发快速扩容",effect:"续航+换弹"},{slot:"🔭",name:"3倍可调弹道镜",effect:"中远精准"},{slot:"🎯",name:"主宰者枪托",effect:"后坐控制+30%"},{slot:"💡",name:"PERST7蓝激光",effect:"腰射+10%"}] },
+      { level: "网友推荐①", key: "netizen1", cost: "≈55万", code: "6KFCTUS0C2C56U6BB8FNO", note: "网友@中距之王 · 性价比型", attachments: [ {slot:"🔇",name:"消焰器",effect:"隐蔽+后坐"},{slot:"🔫",name:"标准长枪管",effect:"中距优化"},{slot:"✋",name:"斜角握把",effect:"开镜优化"},{slot:"📦",name:"30发弹匣",effect:"基础"},{slot:"🔭",name:"全息镜",effect:"近战快速"}] },
+      { level: "网友推荐②", key: "netizen2", cost: "≈80万", code: "6KFCU2K0C2C56U6BB8FNO", note: "网友@稳定输出 · 持续型", attachments: [ {slot:"🔇",name:"制退器",effect:"后坐控制"},{slot:"🔫",name:"长枪管",effect:"射程+精度"},{slot:"✋",name:"共振握把",effect:"压枪极易"},{slot:"📦",name:"40发扩容",effect:"持续火力"},{slot:"🔭",name:"3倍镜",effect:"中远压制"}] },
+      { level: "网友推荐③", key: "netizen3", cost: "≈45万", code: "6KFCTUS0C2C56U6BB8FNO", note: "网友@新手RM277 · 入门型", attachments: [ {slot:"🔇",name:"消焰器",effect:"隐蔽"},{slot:"🔫",name:"标准枪管",effect:"基础"},{slot:"✋",name:"垂直握把",effect:"后坐控制"},{slot:"📦",name:"30发弹匣",effect:"基础"},{slot:"🔭",name:"红点镜",effect:"快速瞄准"}] }
+    ]
+  },
+  // KC17 突击步枪 - T0.5
+  {
+    id: "kc17", name: "KC17", nickname: "版本答案·碎甲之王", type: "突击步枪", tier: "T0.5",
+    damage: 35, range: "55m", fireRate: 750,
+    modes: ["机密局", "烽火地带", "近中距离"],
+    scenario: "M7削弱后反超成为版本答案，三枪碎泰坦甲。高碎甲、低成本、高移速、大弹匣，近战爆发强势。",
+    baseStats: { damage: 35, range: "55m", fireRate: "750", recoil: "低", mobility: "高", magazine: "30" },
+    tips: "S10赛季T0.5武器，28万成本打几局就回本。短管版55米内0.33秒TTK，贴脸喷子都能抢赢。",
+    builds: [
+      { level: "低配", key: "low", cost: "≈28万", code: "6K4ITUC0DPT6BEM55ITPP", note: "性价比之王", attachments: [ {slot:"🔇",name:"消焰器",effect:"隐蔽"},{slot:"🔫",name:"短突击枪管",effect:"机动MAX"},{slot:"✋",name:"垂直握把",effect:"腰射精度"},{slot:"📦",name:"30发弹匣",effect:"基础"},{slot:"🔭",name:"红点镜",effect:"快速瞄准"}] },
+      { level: "中配", key: "mid", cost: "≈33万", code: "6K4J2140DPT6BEM55ITPP", note: "平衡扩展", attachments: [ {slot:"🔇",name:"鸟笼消焰器",effect:"后坐-20%"},{slot:"🔫",name:"标准枪管",effect:"射程弥补"},{slot:"✋",name:"斜角握把",effect:"操控+开镜"},{slot:"📦",name:"30发快速弹匣",effect:"换弹优化"},{slot:"🔭",name:"全息镜",effect:"中近跟枪"}] },
+      { level: "满改", key: "max", cost: "≈45万", code: "6K4J2140DPT6BEM55ITPP", note: "碎甲压制流", attachments: [ {slot:"🔇",name:"制退器",effect:"连射稳定"},{slot:"🔫",name:"长枪管",effect:"射程+碎甲"},{slot:"✋",name:"垂直握把",effect:"腰射+压枪"},{slot:"📦",name:"40发快速扩容",effect:"续航+换弹"},{slot:"🔭",name:"3倍镜",effect:"中距压制"},{slot:"🎯",name:"战术枪托",effect:"稳定"},{slot:"💡",name:"战术镭射",effect:"腰射+15%"}] },
+      { level: "网友推荐①", key: "netizen1", cost: "≈30万", code: "6K4ITUC0DPT6BEM55ITPP", note: "网友@碎甲达人 · 近战流", attachments: [ {slot:"🔇",name:"消音器",effect:"完全隐蔽"},{slot:"🔫",name:"短管",effect:"机动MAX"},{slot:"✋",name:"垂直握把",effect:"腰射极稳"},{slot:"📦",name:"30发弹匣",effect:"基础"},{slot:"💡",name:"战术镭射",effect:"腰射+15%"}] },
+      { level: "网友推荐②", key: "netizen2", cost: "≈38万", code: "6K4J2140DPT6BEM55ITPP", note: "网友@中距控枪 · 平衡型", attachments: [ {slot:"🔇",name:"消焰器",effect:"隐蔽+后坐"},{slot:"🔫",name:"长枪管",effect:"中距优化"},{slot:"✋",name:"斜角握把",effect:"操控+后坐"},{slot:"📦",name:"30发快速弹匣",effect:"换弹快"},{slot:"🔭",name:"3倍镜",effect:"中远点射"}] },
+      { level: "网友推荐③", key: "netizen3", cost: "≈42万", code: "6K4J2140DPT6BEM55ITPP", note: "网友@满配KC17 · 极致输出", attachments: [ {slot:"🔇",name:"制退器",effect:"连射不飘"},{slot:"🔫",name:"长枪管",effect:"射程+精度"},{slot:"✋",name:"斜角握把",effect:"操控+后坐"},{slot:"📦",name:"45发快速扩容",effect:"超大容量"},{slot:"🔭",name:"3倍弹道镜",effect:"中远压制"},{slot:"🎯",name:"主宰者枪托",effect:"后坐控制MAX"}] }
+    ]
+  },
+  // ============ T0 梯队（版本真神）============
+  {
+    id: "m7", name: "M7", nickname: "全能天花板", type: "战斗步枪", tier: "T0",
+    damage: 40, range: "65m", fireRate: 720,
+    modes: ["绝密猛攻", "3×3任务", "全面战场"],
+    scenario: "S10赛季小幅削弱，但仍是全场景万金油。30米内几乎无水平后坐，连续射击准星回收极快。",
+    baseStats: { damage: 40, range: "65m", fireRate: "720", recoil: "极低", mobility: "中等", magazine: "30" },
+    tips: "S10赛季小幅削弱，但综合性能仍顶尖。优先高倍镜打中远距离压制，近战需要更依赖预瞄和身位。",
+    builds: [
+      { level: "低配", key: "low", cost: "≈50万", code: "6JQ3BVC095AEL8D57LH45", note: "", attachments: [ {slot:"🔇",name:"FFC双流制退器",effect:"后坐-25%"},{slot:"🔫",name:"标准枪管",effect:"基础精度"},{slot:"✋",name:"实用斜角握把",effect:"开镜+15%"},{slot:"📦",name:"30发弹匣",effect:"基础"},{slot:"🔭",name:"红点",effect:"近战"}] },
+      { level: "中配", key: "mid", cost: "≈70万", code: "6JQ3C58095AEL8D57LH45", note: "", attachments: [ {slot:"🔇",name:"FFC双流制退器",effect:"后坐-30%"},{slot:"🔫",name:"提风长枪管",effect:"射程+15%"},{slot:"✋",name:"实用斜角握把",effect:"水平后坐-15%"},{slot:"📦",name:"30发快速弹匣",effect:"换弹快"},{slot:"🔭",name:"3倍镜",effect:"中距"},{slot:"🎯",name:"天蝎座后握把",effect:"操控+12%"}] },
+      { level: "满改", key: "max", cost: "≈100万", code: "6JT7EGC0D69M54S2KHIUU", note: "满配压枪极稳", attachments: [ {slot:"🔇",name:"FFC双流制退器",effect:"连射极稳"},{slot:"🔫",name:"提风长枪管",effect:"射程+15%"},{slot:"✋",name:"实用斜角握把",effect:"水平后坐-15%"},{slot:"📦",name:"40发快速扩容",effect:"续航+换弹"},{slot:"🔭",name:"3倍可调弹道镜",effect:"中远精准"},{slot:"🎯",name:"主宰者枪托",effect:"后坐控制+30%"},{slot:"💡",name:"PERST7蓝激光",effect:"腰射+10%"}] },
+      { level: "网友推荐①", key: "netizen1", cost: "≈60万", code: "6JQ3BVC095AEL8D57LH45", note: "网友@老张配枪 · 平衡型", attachments: [ {slot:"🔇",name:"FFC双流制退器",effect:"后坐控制"},{slot:"🔫",name:"提风长枪管",effect:"中距优化"},{slot:"✋",name:"共振三代握把",effect:"压枪极易"},{slot:"📦",name:"30发快速弹匣",effect:"换弹优化"},{slot:"🔭",name:"全息镜",effect:"近中跟枪"},{slot:"🎯",name:"天蝎座后握把",effect:"操控+12%"}] },
+      { level: "网友推荐②", key: "netizen2", cost: "≈85万", code: "6JT7EGC0D69M54S2KHIUU", note: "网友@狙神小刘 · 远距流", attachments: [ {slot:"🔇",name:"FFC双流制退器",effect:"连射稳定"},{slot:"🔫",name:"提风长枪管",effect:"射程MAX"},{slot:"✋",name:"实用斜角握把",effect:"水平后坐极低"},{slot:"📦",name:"40发快速扩容",effect:"续航拉满"},{slot:"🔭",name:"4倍弹道镜",effect:"远距压制"},{slot:"🎯",name:"主宰者枪托",effect:"后坐控制MAX"}] },
+      { level: "网友推荐③", key: "netizen3", cost: "≈45万", code: "6JQ3C58095AEL8D57LH45", note: "网友@枪械达人 · 近战流", attachments: [ {slot:"🔇",name:"鸟笼消焰器",effect:"隐蔽+后坐"},{slot:"🔫",name:"短突击枪管",effect:"机动MAX"},{slot:"✋",name:"垂直前握把",effect:"腰射提升"},{slot:"📦",name:"40发快速扩容",effect:"近战火力"},{slot:"🔭",name:"红点镜",effect:"近战最快"},{slot:"💡",name:"战术镭射",effect:"腰射+15%"}] }
+    ]
+  },
+  {
+    id: "m82", name: "M82 巴雷特", nickname: "反器材狙击", type: "狙击步枪", tier: "T0",
+    damage: 95, range: "200m+", fireRate: 120,
+    modes: ["全面战场", "远程狙击", "反载具"],
+    scenario: "半自动.50口径，射速约AWM的3倍，64米内胸部以上一枪必杀。可穿透掩体并击毁载具。",
+    baseStats: { damage: 95, range: "200m+", fireRate: "120", recoil: "极高", mobility: "低", magazine: "5" },
+    tips: "约5枪摧毁摩托车，20+枪摧毁坦克，可无视载具主动防御系统。",
+    builds: [
+      { level: "低配", key: "low", cost: "≈55万", code: "6JOLIOO092PMAH1SNTPDP", note: "", attachments: [ {slot:"🔇",name:"标准制退器",effect:"后坐-25%"},{slot:"🔫",name:"加长枪管",effect:"射程+25%"},{slot:"🔭",name:"6倍镜",effect:"中远瞄准"},{slot:"📐",name:"标准脚架",effect:"架枪稳定"},{slot:"💥",name:".50弹",effect:"基础穿甲"}] },
+      { level: "中配", key: "mid", cost: "≈57万", code: "6JOLIOO092PMAH1SNTPDP", note: "", attachments: [ {slot:"🔇",name:"专用制退器",effect:"后坐-40%"},{slot:"🔫",name:"重型长枪管",effect:"射程+40%"},{slot:"🔭",name:"8倍战术镜",effect:"带测距"},{slot:"📐",name:"轻型脚架",effect:"架枪后坐清零"},{slot:"💥",name:".50穿甲弹",effect:"穿甲+50%"}] },
+      { level: "满改", key: "max", cost: "≈120万", code: "6JPH8KG0AO21USGQ8AC2S", note: "声波隐蔽流", attachments: [ {slot:"🔇",name:"声波抑制器",effect:"消音+侦察"},{slot:"🔫",name:"重型长枪管",effect:"射程+40%"},{slot:"🔭",name:"20倍弹道镜",effect:"远程收割"},{slot:"📐",name:"狙击专用握把",effect:"抖动-25%"},{slot:"🎯",name:"缓冲枪托",effect:"后坐上抬-30%"},{slot:"📦",name:"10发扩容",effect:"减少换弹"},{slot:"💥",name:"M903 SLAP",effect:"7级穿透"}] },
+      { level: "网友推荐①", key: "netizen1", cost: "≈75万", code: "6JOLIOO092PMAH1SNTPDP", note: "网友@狙击手阿杰 · 均衡型", attachments: [ {slot:"🔇",name:"专用制退器",effect:"后坐控制"},{slot:"🔫",name:"重型长枪管",effect:"射程MAX"},{slot:"🔭",name:"12倍弹道镜",effect:"超远精准"},{slot:"📐",name:"轻型脚架",effect:"架枪稳定"},{slot:"🎯",name:"缓冲枪托",effect:"后坐控制"}] },
+      { level: "网友推荐②", key: "netizen2", cost: "≈90万", code: "6JPH8KG0AO21USGQ8AC2S", note: "网友@反载具专家 · 载具杀手", attachments: [ {slot:"🔇",name:"声波抑制器",effect:"消音隐蔽"},{slot:"🔫",name:"重型长枪管",effect:"射程+穿透"},{slot:"🔭",name:"8倍战术镜",effect:"载具打击"},{slot:"📐",name:"重型脚架",effect:"架枪绝对稳定"},{slot:"💥",name:"M903 SLAP",effect:"穿甲载具"}] },
+      { level: "网友推荐③", key: "netizen3", cost: "≈50万", code: "6JOLIOO092PMAH1SNTPDP", note: "网友@新手狙友 · 入门友好", attachments: [ {slot:"🔇",name:"标准制退器",effect:"后坐降低"},{slot:"🔫",name:"标准长枪管",effect:"基础精度"},{slot:"🔭",name:"6倍镜",effect:"新手友好"},{slot:"📐",name:"标准脚架",effect:"架枪辅助"}] }
+    ]
+  },
+  {
+    id: "k416", name: "K416", nickname: "4弹局天王", type: "突击步枪", tier: "T0",
+    damage: 35, range: "55m", fireRate: 880,
+    modes: ["机密战场", "4弹局", "高分局"],
+    scenario: "4弹局 S+ 天王，880射速，双伤破千，压枪极容易，全距离通吃。版本答案级武器。",
+    baseStats: { damage: 35, range: "55m", fireRate: "880", recoil: "低", mobility: "中等", magazine: "30" },
+    tips: "机密战场4弹局的神，880射速模组输出爆炸。建议搭配4级弹使用。",
+    builds: [
+      { level: "低配", key: "low", cost: "≈23万", code: "6JO8S040B0GKDDOTE9T6Q", note: "", attachments: [ {slot:"🔇",name:"消焰器",effect:"隐蔽"},{slot:"🔫",name:"标准枪管",effect:"基础"},{slot:"✋",name:"垂直前握把",effect:"后坐控制"},{slot:"📦",name:"30发弹匣",effect:"基础"},{slot:"🔭",name:"红点镜",effect:"快速瞄准"}] },
+      { level: "中配", key: "mid", cost: "≈35万", code: "6JO8SH00B0GKDDOTE9T6Q", note: "", attachments: [ {slot:"🔇",name:"战术消焰器",effect:"隐蔽+后坐"},{slot:"🔫",name:"长枪管",effect:"射程提升"},{slot:"✋",name:"垂直前握把",effect:"后坐控制"},{slot:"📦",name:"扩容弹匣",effect:"续航"},{slot:"🔭",name:"全息镜",effect:"中近快速"},{slot:"🎯",name:"战术枪托",effect:"稳定"}] },
+      { level: "满改", key: "max", cost: "≈42万", code: "6JO8UGK0B0GKDDOTE9T6Q", note: "高性价比满改", attachments: [ {slot:"🔇",name:"专用制退器",effect:"连射稳定MAX"},{slot:"🔫",name:"精准长枪管",effect:"射程+精度"},{slot:"✋",name:"斜角握把",effect:"操控+后坐"},{slot:"📦",name:"快速扩容弹匣",effect:"续航+换弹"},{slot:"🔭",name:"3倍弹道镜",effect:"中远压制"},{slot:"🎯",name:"稳定战术枪托",effect:"后坐控制MAX"},{slot:"💡",name:"战术镭射",effect:"腰射+15%"}] },
+      { level: "网友推荐①", key: "netizen1", cost: "≈30万", code: "6JO8S040B0GKDDOTE9T6Q", note: "网友@K416发烧友 · 性价比之王", attachments: [ {slot:"🔇",name:"消焰器",effect:"低成本隐蔽"},{slot:"🔫",name:"标准枪管",effect:"平衡"},{slot:"✋",name:"斜角握把",effect:"开镜优化"},{slot:"📦",name:"30发弹匣",effect:"基础"},{slot:"🔭",name:"全息镜",effect:"近战快速"}] },
+      { level: "网友推荐②", key: "netizen2", cost: "≈38万", code: "6JO8SH00B0GKDDOTE9T6Q", note: "网友@机密小王子 · 4弹局特化", attachments: [ {slot:"🔇",name:"战术消焰器",effect:"隐蔽性MAX"},{slot:"🔫",name:"长枪管",effect:"中距优化"},{slot:"✋",name:"垂直前握把",effect:"压枪极易"},{slot:"📦",name:"扩容弹匣",effect:"续航"},{slot:"🔭",name:"3倍镜",effect:"中距点射"},{slot:"💡",name:"蓝激光",effect:"腰射辅助"}] },
+      { level: "网友推荐③", key: "netizen3", cost: "≈45万", code: "6JO8UGK0B0GKDDOTE9T6Q", note: "网友@满改达人 · 极致输出流", attachments: [ {slot:"🔇",name:"专用制退器",effect:"连射不飘"},{slot:"🔫",name:"精准长枪管",effect:"射程+精度"},{slot:"✋",name:"斜角握把",effect:"操控+后坐"},{slot:"📦",name:"45发快速扩容",effect:"超大容量"},{slot:"🔭",name:"3倍弹道镜",effect:"中远压制"},{slot:"🎯",name:"主宰者枪托",effect:"后坐控制MAX"}] }
+    ]
+  },
+  {
+    id: "ar57", name: "AR-57", nickname: "近战绞肉机", type: "突击步枪", tier: "T0",
+    damage: 32, range: "30m", fireRate: 800,
+    modes: ["烽火地带", "室内近战", "小地图"],
+    scenario: "800发/分钟+50发大弹鼓，腰射极强。20米内秒人，室内CQB无敌。",
+    baseStats: { damage: 32, range: "30m", fireRate: "800", recoil: "中等", mobility: "高", magazine: "50" },
+    tips: "最佳作战距离15~30米，超过50米精度大幅下降。Z字弹道，室内乱杀。",
+    builds: [
+      { level: "低配", key: "low", cost: "≈25万", code: "6JO0LP00EE3GQ6TOR21G1", note: "", attachments: [ {slot:"🔇",name:"消焰器",effect:"隐蔽"},{slot:"🔫",name:"标准枪管",effect:"基础"},{slot:"✋",name:"标准前握把",effect:"后坐控制"},{slot:"📦",name:"50发弹鼓",effect:"大容量"},{slot:"🔭",name:"红点镜",effect:"快速瞄准"}] },
+      { level: "中配", key: "mid", cost: "≈40万", code: "6JO0LO00EE3GQ6TOR21G3", note: "", attachments: [ {slot:"🔇",name:"鸟笼消焰器",effect:"后坐-20%"},{slot:"🔫",name:"碳纤维长枪管",effect:"射程+15%"},{slot:"✋",name:"垂直握把",effect:"腰射精度"},{slot:"📦",name:"50发扩容弹鼓",effect:"持续压制"},{slot:"🔭",name:"全息镜",effect:"近战快开镜"},{slot:"🎯",name:"稳定战术枪托",effect:"稳定性"}] },
+      { level: "满改", key: "max", cost: "≈55万", code: "6JO0LPO0EE3GQ6TOR21G2", note: "腰射极致流", attachments: [ {slot:"🔇",name:"鸟笼消焰器",effect:"后坐-20%"},{slot:"🔫",name:"碳纤维长枪管",effect:"射程+15%"},{slot:"✋",name:"垂直握把",effect:"腰射不散"},{slot:"📦",name:"50发扩容弹鼓",effect:"持续压制"},{slot:"🔭",name:"全息/红点",effect:"跟枪流畅"},{slot:"🎯",name:"轻型战术枪托",effect:"开镜+18%"},{slot:"💡",name:"战术镭射",effect:"腰射+15%"}] },
+      { level: "网友推荐①", key: "netizen1", cost: "≈30万", code: "6JO0LP00EE3GQ6TOR21G1", note: "网友@室内战神 · 纯近战向", attachments: [ {slot:"🔇",name:"消音器",effect:"完全隐蔽"},{slot:"🔫",name:"短枪管",effect:"机动MAX"},{slot:"✋",name:"垂直握把",effect:"腰射极稳"},{slot:"📦",name:"50发弹鼓",effect:"持续火力"},{slot:"💡",name:"战术镭射",effect:"腰射+15%"}] },
+      { level: "网友推荐②", key: "netizen2", cost: "≈48万", code: "6JO0LO00EE3GQ6TOR21G3", note: "网友@中距控枪手 · 平衡扩展型", attachments: [ {slot:"🔇",name:"鸟笼消焰器",effect:"后坐控制"},{slot:"🔫",name:"碳纤维长枪管",effect:"射程弥补"},{slot:"✋",name:"斜角握把",effect:"操控+开镜"},{slot:"📦",name:"50发扩容弹鼓",effect:"续航"},{slot:"🔭",name:"全息镜",effect:"中近通用"}] },
+      { level: "网友推荐③", key: "netizen3", cost: "≈52万", code: "6JO0LPO0EE3GQ6TOR21G2", note: "网友@满配爱好者 · 极致腰射流", attachments: [ {slot:"🔇",name:"消音器",effect:"隐蔽"},{slot:"🔫",name:"短枪管",effect:"机动"},{slot:"✋",name:"垂直握把",effect:"腰射MAX"},{slot:"📦",name:"50发扩容弹鼓",effect:"持续火力"},{slot:"💡",name:"蓝激光+镭射",effect:"腰射精度拉满"}] }
+    ]
+  },
+  // ============ T0.5 梯队（全能强势）============
+  {
+    id: "m14", name: "M14", nickname: "射手步枪 · 中距稳定", type: "射手步枪", tier: "T0.5",
+    damage: 39, range: "80m", fireRate: 727,
+    modes: ["绝密模式", "高手冲分", "防守架点"],
+    scenario: "爆头倍率提升，80米内两枪满甲。50发扩容弹匣，持续输出极强。",
+    baseStats: { damage: 39, range: "80m", fireRate: "727", recoil: "中等", mobility: "中等", magazine: "50" },
+    tips: "共振三代握把大幅降低压枪难度，配合50发弹匣持续压制。高分段高手首选。",
+    builds: [
+      { level: "低配", key: "low", cost: "≈35万", code: "6JT7PPK0D69M54S2KHIUU", note: "", attachments: [ {slot:"🔇",name:"标准制退器",effect:"后坐降低"},{slot:"🔫",name:"标准长枪管",effect:"精度提升"},{slot:"✋",name:"标准前握把",effect:"基础操控"},{slot:"📦",name:"20发弹匣",effect:"基础"},{slot:"🔭",name:"4倍镜",effect:"中远瞄准"}] },
+      { level: "中配", key: "mid", cost: "≈55万", code: "6JT7PPK0D69M54S2KHIUU", note: "", attachments: [ {slot:"🔇",name:"制退器",effect:"后坐-25%"},{slot:"🔫",name:"重型枪管",effect:"远射精度"},{slot:"✋",name:"共振握把",effect:"压枪极易"},{slot:"📦",name:"30发扩容",effect:"火力持续"},{slot:"🔭",name:"6倍镜",effect:"中远架点"}] },
+      { level: "满改", key: "max", cost: "≈70万", code: "6JT7PPK0D69M54S2KHIUU", note: "架点无敌流", attachments: [ {slot:"🔇",name:"制退器",effect:"水平后坐-25%"},{slot:"🔫",name:"狙击长枪管",effect:"射程+15%"},{slot:"✋",name:"共振三代握把",effect:"操控极易"},{slot:"📐",name:"轻型脚架",effect:"架枪后坐清零"},{slot:"📦",name:"50发扩容",effect:"持续火力"},{slot:"🔭",name:"8倍弹道镜",effect:"100米外精准"},{slot:"🎯",name:"狙击稳固枪托",effect:"连续点射不飘"}] },
+      { level: "网友推荐①", key: "netizen1", cost: "≈45万", code: "6JT7PPK0D69M54S2KHIUU", note: "网友@架点大师 · 防守专用", attachments: [ {slot:"🔇",name:"制退器",effect:"后坐控制"},{slot:"🔫",name:"重型枪管",effect:"远距精度"},{slot:"✋",name:"共振三代握把",effect:"压枪极容易"},{slot:"📐",name:"轻型脚架",effect:"架枪稳定"},{slot:"📦",name:"50发弹匣",effect:"持续输出"}] },
+      { level: "网友推荐②", key: "netizen2", cost: "≈60万", code: "6JT7PPK0D69M54S2KHIUU", note: "网友@移动狙手 · 游骑兵型", attachments: [ {slot:"🔇",name:"消焰器",effect:"隐蔽+后坐"},{slot:"🔫",name:"狙击长枪管",effect:"射程+精度"},{slot:"✋",name:"共振握把",effect:"操控"},{slot:"📦",name:"30发弹匣",effect:"平衡容量"},{slot:"🔭",name:"4倍镜",effect:"中距快速"}] },
+      { level: "网友推荐③", key: "netizen3", cost: "≈38万", code: "6JT7PPK0D69M54S2KHIUU", note: "网友@新手射手 · 入门友好", attachments: [ {slot:"🔇",name:"标准制退器",effect:"后坐降低"},{slot:"🔫",name:"标准枪管",effect:"基础"},{slot:"✋",name:"垂直握把",effect:"后坐控制"},{slot:"📦",name:"20发弹匣",effect:"基础"},{slot:"🔭",name:"红点+3倍",effect:"近中兼顾"}] }
+    ]
+  },
+  {
+    id: "asval", name: "AS Val", nickname: "巨浪 · 近点天花板", type: "突击步枪", tier: "T0.5",
+    damage: 36, range: "20m", fireRate: 972,
+    modes: ["房区乱杀", "近点冲脸", "偷袭拉扯"],
+    scenario: "自带消音、高额护甲伤害。972发/分钟贴脸几乎无敌。S10调整后近战依旧强势。",
+    baseStats: { damage: 36, range: "20m", fireRate: "972", recoil: "高", mobility: "高", magazine: "30" },
+    tips: "消音+高射速=偷袭神器。贴脸对枪几乎无敌，中距离已被削弱，需贴近作战。",
+    builds: [
+      { level: "低配", key: "low", cost: "≈39万", code: "6GL0C5O094898G9NDGRT", note: "", attachments: [ {slot:"🔇",name:"内置消音器",effect:"自带消音"},{slot:"🔫",name:"标准短枪管",effect:"近战机动"},{slot:"✋",name:"标准握把",effect:"基础腰射"},{slot:"📦",name:"20发弹匣",effect:"基础"}] },
+      { level: "中配", key: "mid", cost: "≈45万", code: "6GHUQJJC0DEC5PLI24CCR", note: "", attachments: [ {slot:"🔇",name:"内置消音器",effect:"自带消音无暴露"},{slot:"🔫",name:"短管",effect:"近战机动性"},{slot:"✋",name:"前握把",effect:"腰射精度+12%"},{slot:"📦",name:"30发扩容",effect:"续航增强"},{slot:"🔭",name:"红点镜",effect:"快速瞄准"},{slot:"💥",name:"9×39mm弹",effect:"护甲伤害"}] },
+      { level: "满改", key: "max", cost: "≈55万", code: "6JT7PGC0D69M54S2KHIUU", note: "消音腰射流", attachments: [ {slot:"🔇",name:"内置消音器",effect:"完全隐蔽"},{slot:"🔫",name:"短管突击枪管",effect:"机动拉满"},{slot:"✋",name:"战术前握把",effect:"腰射精度MAX"},{slot:"📦",name:"快速扩容弹匣",effect:"续航+换弹"},{slot:"🔭",name:"全息镜",effect:"跟枪流畅"},{slot:"💥",name:"9×39mm穿甲弹",effect:"护甲伤害MAX"},{slot:"💡",name:"战术镭射",effect:"腰射+15%"}] },
+      { level: "网友推荐①", key: "netizen1", cost: "≈42万", code: "6GL0C5O094898G9NDGRT", note: "网友@偷袭之王 · 纯 stealth 向", attachments: [ {slot:"🔇",name:"内置消音器",effect:"完全隐蔽"},{slot:"🔫",name:"短管",effect:"机动"},{slot:"✋",name:"前握把",effect:"腰射"},{slot:"📦",name:"30发弹匣",effect:"续航"},{slot:"💡",name:"消音镭射",effect:"隐蔽腰射"}] },
+      { level: "网友推荐②", key: "netizen2", cost: "≈50万", code: "6GHUQJJC0DEC5PLI24CCR", note: "网友@房区战神 · 近战冲锋流", attachments: [ {slot:"🔇",name:"内置消音器",effect:"隐蔽"},{slot:"🔫",name:"短突击枪管",effect:"近战"},{slot:"✋",name:"垂直握把",effect:"腰射MAX"},{slot:"📦",name:"30发快速弹匣",effect:"换弹快"},{slot:"🔭",name:"全息镜",effect:"跟枪"}] },
+      { level: "网友推荐③", key: "netizen3", cost: "≈35万", code: "6GL0C5O094898G9NDGRT", note: "网友@新手Val · 低成本入门", attachments: [ {slot:"🔇",name:"内置消音器",effect:"自带"},{slot:"🔫",name:"标准枪管",effect:"基础"},{slot:"✋",name:"标准握把",effect:"基础"},{slot:"📦",name:"20发弹匣",effect:"基础"},{slot:"🔭",name:"铁瞄",effect:"零成本"}] }
+    ]
+  },
+  {
+    id: "mk47", name: "MK47", nickname: "极致伤害", type: "突击步枪", tier: "T0.5",
+    damage: 45, range: "35m", fireRate: 600,
+    modes: ["中近距离", "极致输出", "秒人打法"],
+    scenario: "全游戏伤害顶尖的突击步枪，基础伤害45点，护甲伤害46点。40发大弹匣秒人能力拉满。",
+    baseStats: { damage: 45, range: "35m", fireRate: "600", recoil: "中等", mobility: "中等", magazine: "40" },
+    tips: "伤害天花板，但容错率略逊于M7。后坐力控制73点，同伤害枪中最优秀。",
+    builds: [
+      { level: "低配", key: "low", cost: "≈30万", code: "6JT7PMC0D69M54S2KHIUU", note: "", attachments: [ {slot:"🔇",name:"消焰器",effect:"降低暴露"},{slot:"🔫",name:"标准枪管",effect:"基础精度"},{slot:"✋",name:"标准前握把",effect:"后坐控制"},{slot:"📦",name:"30发弹匣",effect:"基础"},{slot:"🔭",name:"红点镜",effect:"瞄准"}] },
+      { level: "中配", key: "mid", cost: "≈50万", code: "6JT7PMC0D69M54S2KHIUU", note: "", attachments: [ {slot:"🔇",name:"制退器",effect:"后坐大幅降低"},{slot:"🔫",name:"中距枪管",effect:"精度稳定"},{slot:"✋",name:"垂直前握把",effect:"后坐力控制"},{slot:"📦",name:"40发扩容",effect:"续航提升"},{slot:"🔭",name:"全息镜",effect:"中近瞄准"}] },
+      { level: "满改", key: "max", cost: "≈70万", code: "6JT7PMC0D69M54S2KHIUU", note: "伤害极致流", attachments: [ {slot:"🔇",name:"FFC制退器",effect:"后坐控制MAX"},{slot:"🔫",name:"重型精准枪管",effect:"伤害衰减最小"},{slot:"✋",name:"斜角握把",effect:"后坐控制73点"},{slot:"📦",name:"40发快速扩容",effect:"续航充足"},{slot:"🔭",name:"3倍弹道镜",effect:"中距精准压制"},{slot:"🎯",name:"主宰者枪托",effect:"后坐控制拉满"},{slot:"💡",name:"蓝激光",effect:"腰射精度"}] },
+      { level: "网友推荐①", key: "netizen1", cost: "≈40万", code: "6JT7PMC0D69M54S2KHIUU", note: "网友@伤害测试员 · 极致秒人型", attachments: [ {slot:"🔇",name:"FFC制退器",effect:"后坐控制"},{slot:"🔫",name:"重型枪管",effect:"伤害衰减最小"},{slot:"✋",name:"斜角握把",effect:"操控+后坐"},{slot:"📦",name:"40发弹匣",effect:"容量"}] },
+      { level: "网友推荐②", key: "netizen2", cost: "≈55万", code: "6JT7PMC0D69M54S2KHIUU", note: "网友@中距控枪 · 均衡输出型", attachments: [ {slot:"🔇",name:"制退器",effect:"后坐"},{slot:"🔫",name:"精准枪管",effect:"中距精度"},{slot:"✋",name:"垂直前握把",effect:"压枪"},{slot:"📦",name:"40发快速扩容",effect:"续航"},{slot:"🔭",name:"3倍镜",effect:"中距"}] },
+      { level: "网友推荐③", key: "netizen3", cost: "≈32万", code: "6JT7PMC0D69M54S2KHIUU", note: "网友@MK47真爱粉 · 情怀改装", attachments: [ {slot:"🔇",name:"消焰器",effect:"隐蔽"},{slot:"🔫",name:"标准枪管",effect:"平衡"},{slot:"✋",name:"前握把",effect:"后坐"},{slot:"📦",name:"30发弹匣",effect:"基础"}] }
+    ]
+  },
+  {
+    id: "qcq171", name: "QCQ171", nickname: "性价比之王", type: "冲锋枪", tier: "T0.5",
+    damage: 30, range: "25m", fireRate: 850,
+    modes: ["近战刚枪", "新手入门", "低成本"],
+    scenario: "史诗加强后性价比之王，近战操控性大幅提升。低成本满改，新手友好。",
+    baseStats: { damage: 30, range: "25m", fireRate: "850", recoil: "低", mobility: "极高", magazine: "35" },
+    tips: "S10加强，新手入坑首选。造价低廉，改满成本极低。",
+    builds: [
+      { level: "低配", key: "low", cost: "≈15万", code: "6IL9M0K0BS205M2DA91B4", note: "", attachments: [ {slot:"🔇",name:"简易消音",effect:"基础隐蔽"},{slot:"🔫",name:"标准短管",effect:"机动性"},{slot:"✋",name:"标准握把",effect:"基础腰射"},{slot:"📦",name:"标准弹匣",effect:"基础"}] },
+      { level: "中配", key: "mid", cost: "≈25万", code: "6IL9M0K0BS205M2DA91B4", note: "", attachments: [ {slot:"🔇",name:"消音器",effect:"隐蔽作战"},{slot:"🔫",name:"短枪管",effect:"机动性"},{slot:"✋",name:"前握把",effect:"腰射精度"},{slot:"📦",name:"扩容弹匣",effect:"火力持续"},{slot:"🔭",name:"红点镜",effect:"快速瞄准"},{slot:"🎯",name:"轻量化枪托",effect:"移动速度"}] },
+      { level: "满改", key: "max", cost: "≈35万", code: "6IL9M0K0BS205M2DA91B4", note: "低成本满改", attachments: [ {slot:"🔇",name:"消音器",effect:"隐蔽作战"},{slot:"🔫",name:"短枪管",effect:"机动性拉满"},{slot:"✋",name:"战术前握把",effect:"腰射精度MAX"},{slot:"📦",name:"35发快速扩容",effect:"续航+换弹"},{slot:"🔭",name:"红点/全息",effect:"快速瞄准"},{slot:"🎯",name:"超轻量枪托",effect:"移动速度MAX"},{slot:"💡",name:"战术镭射",effect:"腰射+15%"}] },
+      { level: "网友推荐①", key: "netizen1", cost: "≈18万", code: "6IL9M0K0BS205M2DA91B4", note: "网友@新手教练 · 入门首选", attachments: [ {slot:"🔇",name:"消焰器",effect:"低成本隐蔽"},{slot:"🔫",name:"短管",effect:"近战机动"},{slot:"✋",name:"握把",effect:"基础腰射"},{slot:"📦",name:"30发弹匣",effect:"基础"}] },
+      { level: "网友推荐②", key: "netizen2", cost: "≈28万", code: "6IL9M0K0BS205M2DA91B4", note: "网友@冲锋枪达人 · 腰射专精", attachments: [ {slot:"🔇",name:"消音器",effect:"隐蔽"},{slot:"🔫",name:"短枪管",effect:"机动"},{slot:"✋",name:"垂直握把",effect:"腰射"},{slot:"📦",name:"35发弹匣",effect:"续航"},{slot:"💡",name:"镭射",effect:"腰射+15%"}] },
+      { level: "网友推荐③", key: "netizen3", cost: "≈12万", code: "6IL9M0K0BS205M2DA91B4", note: "网友@零成本战神 · 极致省钱型", attachments: [ {slot:"🔇",name:"简易消音",effect:"最便宜隐蔽"},{slot:"🔫",name:"原厂短管",effect:"零成本"},{slot:"✋",name:"无握把",effect:"省钱"},{slot:"📦",name:"标准弹匣",effect:"基础"},{slot:"🔭",name:"铁瞄",effect:"零成本"}] }
+    ]
+  },
+  {
+    id: "sr25", name: "SR25", nickname: "连发狙击 · 断层领先", type: "射手步枪", tier: "T0.5",
+    damage: 42, range: "100m", fireRate: 400,
+    modes: ["远距离压制", "半自动狙击", "防守"],
+    scenario: "连发狙击中断层领先，满改装后精度与稳定性极高。半自动连发，输出可靠持久。",
+    baseStats: { damage: 42, range: "100m", fireRate: "400", recoil: "中等", mobility: "低", magazine: "20" },
+    tips: "半自动连狙之王，满改后精度和稳定性断层领先。适合架点防守。",
+    builds: [
+      { level: "低配", key: "low", cost: "≈30万", code: "6HMM8LG0B12QASUQB4J4K", note: "", attachments: [ {slot:"🔇",name:"标准制退器",effect:"后坐降低"},{slot:"🔫",name:"标准长枪管",effect:"精度提升"},{slot:"📐",name:"标准脚架",effect:"架枪稳定"},{slot:"📦",name:"10发弹匣",effect:"基础"},{slot:"🔭",name:"6倍镜",effect:"远程瞄准"}] },
+      { level: "中配", key: "mid", cost: "≈50万", code: "6HMM8LG0B12QASUQB4J4K", note: "", attachments: [ {slot:"🔇",name:"制退器",effect:"后坐-30%"},{slot:"🔫",name:"重型枪管",effect:"精度+射程"},{slot:"📐",name:"双脚架",effect:"架枪稳定"},{slot:"📦",name:"15发扩容",effect:"连发续航"},{slot:"🔭",name:"8倍镜",effect:"远程精确"}] },
+      { level: "满改", key: "max", cost: "≈75万", code: "6HMM8LG0B12QASUQB4J4K", note: "连发狙击满配", attachments: [ {slot:"🔇",name:"专用制退器",effect:"连发后坐清零"},{slot:"🔫",name:"狙击重型枪管",effect:"射程+初速MAX"},{slot:"✋",name:"狙击专用握把",effect:"开镜抖动-30%"},{slot:"📐",name:"轻型脚架",effect:"架枪绝对稳定"},{slot:"📦",name:"20发扩容",effect:"续航提升"},{slot:"🔭",name:"12倍弹道镜",effect:"超远距精准"},{slot:"🎯",name:"狙击稳固枪托",effect:"连续点射不飘"}] },
+      { level: "网友推荐①", key: "netizen1", cost: "≈55万", code: "6HMM8LG0B12QASUQB4J4K", note: "网友@连狙高手 · 快速连发型", attachments: [ {slot:"🔇",name:"制退器",effect:"连发稳定"},{slot:"🔫",name:"重型枪管",effect:"精度"},{slot:"📐",name:"轻型脚架",effect:"架枪稳定"},{slot:"📦",name:"20发弹匣",effect:"快速连发"}] },
+      { level: "网友推荐②", key: "netizen2", cost: "≈65万", code: "6HMM8LG0B12QASUQB4J4K", note: "网友@超远距狙神 · 极致精度流", attachments: [ {slot:"🔇",name:"专用制退器",effect:"后坐清零"},{slot:"🔫",name:"狙击重管",effect:"射程MAX"},{slot:"✋",name:"狙击握把",effect:"抖动消除"},{slot:"🔭",name:"16倍镜",effect:"超远收割"}] },
+      { level: "网友推荐③", key: "netizen3", cost: "≈40万", code: "6HMM8LG0B12QASUQB4J4K", note: "网友@移动狙手 · 轻量化型", attachments: [ {slot:"🔇",name:"消焰器",effect:"隐蔽"},{slot:"🔫",name:"标准枪管",effect:"减重"},{slot:"✋",name:"轻型握把",effect:"操控"},{slot:"📦",name:"15发弹匣",effect:"减重"}] }
+    ]
+  },
+  {
+    id: "awm", name: "AWM", nickname: "栓动 · 一击必杀", type: "狙击步枪", tier: "T0.5",
+    damage: 98, range: "200m+", fireRate: 60,
+    modes: ["远程偷袭", "远距离压制", "高手专属"],
+    scenario: "老牌一击必杀，远程偷袭无解。对枪法要求高，但命中收益极高。S10仍是远程高压选择。",
+    baseStats: { damage: 98, range: "200m+", fireRate: "60", recoil: "极高", mobility: "低", magazine: "5" },
+    tips: "一击必杀机制，.50BMG穿甲弹可无视护甲。对枪法要求高，建议先练M82再上手AWM。",
+    builds: [
+      { level: "低配", key: "low", cost: "≈65万", code: "6JPH8KG0AO21USGQ8AC2S", note: "入门栓狙", attachments: [ {slot:"🔇",name:"标准制退器",effect:"后坐-25%"},{slot:"🔫",name:"加长枪管",effect:"射程+25%"},{slot:"🔭",name:"6倍镜",effect:"中远瞄准"},{slot:"📐",name:"标准脚架",effect:"架枪稳定"},{slot:"💥",name:".50弹",effect:"基础伤害"}] },
+      { level: "中配", key: "mid", cost: "≈85万", code: "6JPH8KG0AO21USGQ8AC2S", note: "均衡型", attachments: [ {slot:"🔇",name:"专用制退器",effect:"后坐-40%"},{slot:"🔫",name:"重型长枪管",effect:"射程+40%"},{slot:"🔭",name:"8倍战术镜",effect:"带测距"},{slot:"📐",name:"轻型脚架",effect:"架枪后坐清零"},{slot:"💥",name:".50穿甲弹",effect:"穿甲+50%"}] },
+      { level: "满改", key: "max", cost: "≈120万", code: "6JPH8KG0AO21USGQ8AC2S", note: "顶级配置", attachments: [ {slot:"🔇",name:"声波抑制器",effect:"消音+侦察"},{slot:"🔫",name:"重型长枪管",effect:"射程+40%"},{slot:"🔭",name:"20倍弹道镜",effect:"远程锁定"},{slot:"📐",name:"狙击专用握把",effect:"抖动-25%"},{slot:"🎯",name:"缓冲枪托",effect:"后坐上抬-30%"},{slot:"📦",name:"10发扩容",effect:"减少换弹"},{slot:"💥",name:"M903 SLAP",effect:"7级穿透"}] },
+      { level: "网友推荐①", key: "netizen1", cost: "≈75万", code: "6JPH8KG0AO21USGQ8AC2S", note: "网友@狙击手阿杰 · 均衡型", attachments: [ {slot:"🔇",name:"专用制退器",effect:"后坐控制"},{slot:"🔫",name:"重型长枪管",effect:"射程MAX"},{slot:"🔭",name:"12倍弹道镜",effect:"超远精准"},{slot:"📐",name:"轻型脚架",effect:"架枪稳定"}] },
+      { level: "网友推荐②", key: "netizen2", cost: "≈90万", code: "6JPH8KG0AO21USGQ8AC2S", note: "网友@反载具专家 · 载具杀手", attachments: [ {slot:"🔇",name:"声波抑制器",effect:"消音隐蔽"},{slot:"🔫",name:"重型长枪管",effect:"射程+穿透"},{slot:"🔭",name:"8倍战术镜",effect:"载具打击"},{slot:"💥",name:"M903 SLAP",effect:"穿甲载具"}] },
+      { level: "网友推荐③", key: "netizen3", cost: "≈50万", code: "6JPH8KG0AO21USGQ8AC2S", note: "网友@新手狙友 · 入门友好型", attachments: [ {slot:"🔇",name:"标准制退器",effect:"后坐降低"},{slot:"🔫",name:"标准长枪管",effect:"基础精度"},{slot:"🔭",name:"6倍镜",effect:"新手友好"}] }
+    ]
+  },
+  // ============ T1 梯队（强势可选）============
+  {
+    id: "m4a1", name: "M4A1", nickname: "经典常青树", type: "突击步枪", tier: "T1",
+    damage: 32, range: "50m", fireRate: 750,
+    modes: ["机密战场", "全能通用", "新手友好"],
+    scenario: "S10赛季获得加强，在机密战场表现更好。经典万金油，全距离均可一战。",
+    baseStats: { damage: 32, range: "50m", fireRate: "750", recoil: "低", mobility: "中等", magazine: "30" },
+    tips: "经典常青树，S10环境下机密战场表现依旧稳健。作为M82的推荐副武器。",
+    builds: [
+      { level: "低配", key: "low", cost: "≈20万", code: "6JQ3FG00FJ99EEA58RV22", note: "", attachments: [ {slot:"🔇",name:"消焰器",effect:"隐蔽性"},{slot:"🔫",name:"标准枪管",effect:"平衡"},{slot:"✋",name:"轻型握把",effect:"操控速度"},{slot:"📦",name:"30发弹匣",effect:"基础"},{slot:"🔭",name:"红点",effect:"快速瞄准"}] },
+      { level: "中配", key: "mid", cost: "≈35万", code: "6JPJJF80B0GKDDOTE9T6Q", note: "", attachments: [ {slot:"🔇",name:"消焰器",effect:"隐蔽性"},{slot:"🔫",name:"标准枪管",effect:"平衡"},{slot:"✋",name:"垂直握把",effect:"后坐控制"},{slot:"📦",name:"扩容弹匣",effect:"容量"},{slot:"🔭",name:"红点/全息",effect:"快速瞄准"},{slot:"🎯",name:"战术枪托",effect:"稳定性"}] },
+      { level: "满改", key: "max", cost: "≈42万", code: "6JPJL7K0B0GKDDOTE9T6Q", note: "加强后性价比极高", attachments: [ {slot:"🔇",name:"战术消焰器",effect:"隐蔽+后坐"},{slot:"🔫",name:"精准长枪管",effect:"射程+精度"},{slot:"✋",name:"斜角握把",effect:"操控+后坐"},{slot:"📦",name:"45发快速扩容",effect:"超大容量"},{slot:"🔭",name:"3倍弹道镜",effect:"中远精准"},{slot:"🎯",name:"稳定战术枪托",effect:"后坐控制MAX"},{slot:"💡",name:"战术镭射",effect:"腰射精度"}] },
+      { level: "网友推荐①", key: "netizen1", cost: "≈25万", code: "6JQ3FG00FJ99EEA58RV22", note: "网友@M4真爱粉 · 经典还原型", attachments: [ {slot:"🔇",name:"消焰器",effect:"经典配置"},{slot:"🔫",name:"M4原厂枪管",effect:"平衡"},{slot:"✋",name:"垂直握把",effect:"后坐控制"},{slot:"📦",name:"30发弹匣",effect:"标准"}] },
+      { level: "网友推荐②", key: "netizen2", cost: "≈38万", code: "6JPJJF80B0GKDDOTE9T6Q", note: "网友@全能战士 · 万金油型", attachments: [ {slot:"🔇",name:"消焰器",effect:"隐蔽"},{slot:"🔫",name:"长枪管",effect:"中距"},{slot:"✋",name:"斜角握把",effect:"全能"},{slot:"📦",name:"扩容弹匣",effect:"续航"}] },
+      { level: "网友推荐③", key: "netizen3", cost: "≈18万", code: "6JQ3FG00FJ99EEA58RV22", note: "网友@新手之友 · 零基础入门", attachments: [ {slot:"🔇",name:"消焰器",effect:"基础隐蔽"},{slot:"🔫",name:"标准枪管",effect:"基础"},{slot:"✋",name:"握把",effect:"基础"},{slot:"📦",name:"30发弹匣",effect:"基础"}] }
+    ]
+  },
+  {
+    id: "aug", name: "AUG", nickname: "5.56系崛起", type: "突击步枪", tier: "T1",
+    damage: 33, range: "50m", fireRate: 700,
+    modes: ["机密战场", "中距离", "稳定输出"],
+    scenario: "5.56系列集体崛起，4级弹打出5级效果。压枪容易，全距离稳健。",
+    baseStats: { damage: 33, range: "50m", fireRate: "700", recoil: "极低", mobility: "中等", magazine: "30" },
+    tips: "5.56系新版本受益者，配合4级弹性价比极高。新手上手极其友好。",
+    builds: [
+      { level: "低配", key: "low", cost: "≈23万", code: "6JOUJ440B0GKDDOTE9T6Q", note: "", attachments: [ {slot:"🔇",name:"消焰器",effect:"隐蔽"},{slot:"🔫",name:"标准枪管",effect:"基础"},{slot:"✋",name:"垂直握把",effect:"后坐控制"},{slot:"📦",name:"30发弹匣",effect:"基础"},{slot:"🔭",name:"红点",effect:"瞄准"}] },
+      { level: "中配", key: "mid", cost: "≈30万", code: "6JOUJFS0B0GKDDOTE9T6Q", note: "", attachments: [ {slot:"🔇",name:"消焰器",effect:"隐蔽"},{slot:"🔫",name:"长枪管",effect:"射程提升"},{slot:"✋",name:"垂直握把",effect:"后坐控制"},{slot:"📦",name:"扩容弹匣",effect:"续航"},{slot:"🔭",name:"全息镜",effect:"中距精度"}] },
+      { level: "满改", key: "max", cost: "≈45万", code: "6JOUKN00B0GKDDOTE9T6Q", note: "5.56系满配", attachments: [ {slot:"🔇",name:"战术消焰器",effect:"后坐+隐蔽"},{slot:"🔫",name:"重型长枪管",effect:"射程+精度"},{slot:"✋",name:"斜角握把",effect:"开镜+操控"},{slot:"📦",name:"快速扩容弹匣",effect:"续航+换弹"},{slot:"🔭",name:"3倍弹道镜",effect:"中远精准"},{slot:"🎯",name:"稳定战术枪托",effect:"后坐控制MAX"},{slot:"💡",name:"蓝激光",effect:"腰射精度"}] },
+      { level: "网友推荐①", key: "netizen1", cost: "≈28万", code: "6JOUJ440B0GKDDOTE9T6Q", note: "网友@AUG信仰玩家 · 原厂情怀型", attachments: [ {slot:"🔇",name:"AUG原厂消焰器",effect:"原汁原味"},{slot:"🔫",name:"AUG标准枪管",effect:"平衡"},{slot:"✋",name:"垂直握把",effect:"后坐控制"}] },
+      { level: "网友推荐②", key: "netizen2", cost: "≈40万", code: "6JOUJFS0B0GKDDOTE9T6Q", note: "网友@5.56专家 · 极致性价比", attachments: [ {slot:"🔇",name:"消焰器",effect:"低成本"},{slot:"🔫",name:"长枪管",effect:"中距优化"},{slot:"✋",name:"斜角握把",effect:"操控"},{slot:"💡",name:"蓝激光",effect:"腰射"}] },
+      { level: "网友推荐③", key: "netizen3", cost: "≈20万", code: "6JOUJ440B0GKDDOTE9T6Q", note: "网友@新手AUG · 入门配置", attachments: [ {slot:"🔇",name:"消焰器",effect:"基础"},{slot:"🔫",name:"标准枪管",effect:"基础"},{slot:"✋",name:"握把",effect:"基础"},{slot:"📦",name:"30发弹匣",effect:"基础"}] }
+    ]
+  },
+  {
+    id: "mp7", name: "MP7", nickname: "近战猛兽", type: "冲锋枪", tier: "T1",
+    damage: 28, range: "20m", fireRate: 950,
+    modes: ["近战冲锋", "小地图", "高机动"],
+    scenario: "核心强度未动摇，依然是非常强力的冲锋枪。虽然从定制券移除，近战火力不减。",
+    baseStats: { damage: 28, range: "20m", fireRate: "950", recoil: "中等", mobility: "极高", magazine: "40" },
+    tips: "近战冲锋枪之王，950射速融化一切近距离目标。",
+    builds: [
+      { level: "低配", key: "low", cost: "≈20万", code: "6HMM5OO0B12QASUQB4J4K", note: "", attachments: [ {slot:"🔇",name:"简易消音",effect:"隐蔽"},{slot:"🔫",name:"标准短管",effect:"机动性"},{slot:"✋",name:"标准握把",effect:"腰射"},{slot:"📦",name:"30发弹匣",effect:"基础"},{slot:"🔭",name:"铁瞄",effect:"瞄准"}] },
+      { level: "中配", key: "mid", cost: "≈40万", code: "6HMM5OO0B12QASUQB4J4K", note: "", attachments: [ {slot:"🔇",name:"消音器",effect:"隐蔽近战"},{slot:"🔫",name:"短枪管",effect:"机动性"},{slot:"✋",name:"前握把",effect:"腰射精度"},{slot:"📦",name:"40发扩容",effect:"续航"},{slot:"🔭",name:"红点镜",effect:"快速瞄准"},{slot:"🎯",name:"轻量枪托",effect:"移动速度"}] },
+      { level: "满改", key: "max", cost: "≈55万", code: "6HMM5OO0B12QASUQB4J4K", note: "腰射极致流", attachments: [ {slot:"🔇",name:"消音器",effect:"完全隐蔽"},{slot:"🔫",name:"短突击枪管",effect:"近战机动拉满"},{slot:"✋",name:"战术前握把",effect:"腰射精度MAX"},{slot:"📦",name:"40发快速扩容",effect:"续航+换弹"},{slot:"🔭",name:"全息镜",effect:"跟枪流畅"},{slot:"🎯",name:"超轻量枪托",effect:"移动速度MAX"},{slot:"💡",name:"战术镭射",effect:"腰射+15%"}] },
+      { level: "网友推荐①", key: "netizen1", cost: "≈30万", code: "6HMM5OO0B12QASUQB4J4K", note: "网友@MP7狂热粉 · 纯近战向", attachments: [ {slot:"🔇",name:"消音器",effect:"隐蔽"},{slot:"🔫",name:"短管",effect:"机动MAX"},{slot:"✋",name:"垂直握把",effect:"腰射"},{slot:"📦",name:"40发弹鼓",effect:"持续火力"},{slot:"💡",name:"镭射",effect:"腰射+15%"}] },
+      { level: "网友推荐②", key: "netizen2", cost: "≈45万", code: "6HMM5OO0B12QASUQB4J4K", note: "网友@室内CQB专家 · 房区统治型", attachments: [ {slot:"🔇",name:"消音器",effect:"隐蔽偷袭"},{slot:"🔫",name:"短枪管",effect:"室内机动"},{slot:"✋",name:"垂直握把",effect:"腰射稳定"},{slot:"📦",name:"40发快速弹匣",effect:"快速换弹"}] },
+      { level: "网友推荐③", key: "netizen3", cost: "≈15万", code: "6HMM5OO0B12QASUQB4J4K", note: "网友@零成本近战 · 极致省钱型", attachments: [ {slot:"🔇",name:"无消音",effect:"省钱"},{slot:"🔫",name:"原厂短管",effect:"零成本"},{slot:"✋",name:"无握把",effect:"省钱"},{slot:"📦",name:"30发弹匣",effect:"基础"}] }
+    ]
+  },
+  {
+    id: "ak12", name: "AK-12", nickname: "暴君限定版", type: "突击步枪", tier: "T1",
+    damage: 38, range: "50m", fireRate: 650,
+    modes: ["新手入门", "低成本", "中距离"],
+    scenario: "特殊弹加持，打甲效率极高（2枪5级头/3枪6级甲）。造价低廉，新手过渡首选。",
+    baseStats: { damage: 38, range: "50m", fireRate: "650", recoil: "中等", mobility: "中等", magazine: "30" },
+    tips: "暴君限定版配合特殊弹药打甲效率惊人，2枪碎5级头。新手入门最佳过渡枪械。",
+    builds: [
+      { level: "低配", key: "low", cost: "≈18万", code: "6IL88AC013CE082VBOHIS", note: "", attachments: [ {slot:"🔇",name:"标准制退器",effect:"后坐降低"},{slot:"🔫",name:"标准枪管",effect:"基础"},{slot:"✋",name:"标准握把",effect:"后坐控制"},{slot:"📦",name:"30发弹匣",effect:"基础"},{slot:"🔭",name:"红点",effect:"瞄准"}] },
+      { level: "中配", key: "mid", cost: "≈30万", code: "6IL88AC013CE082VBOHIS", note: "", attachments: [ {slot:"🔇",name:"制退器",effect:"后坐降低"},{slot:"🔫",name:"标准枪管",effect:"平衡"},{slot:"✋",name:"前握把",effect:"后坐控制"},{slot:"📦",name:"扩容弹匣",effect:"容量"},{slot:"🔭",name:"红点镜",effect:"瞄准"},{slot:"🎯",name:"战术枪托",effect:"稳定性"}] },
+      { level: "满改", key: "max", cost: "≈45万", code: "6IL88AC013CE082VBOHIS", note: "暴君特殊弹流", attachments: [ {slot:"🔇",name:"AK专用制退器",effect:"后坐控制MAX"},{slot:"🔫",name:"AK精准枪管",effect:"精度+射程"},{slot:"✋",name:"斜角握把",effect:"操控+后坐"},{slot:"📦",name:"40发快速扩容",effect:"续航+换弹"},{slot:"🔭",name:"3倍镜",effect:"中距"},{slot:"🎯",name:"AK战术枪托",effect:"稳定"},{slot:"💥",name:"特殊弹药",effect:"打甲效率MAX"}] },
+      { level: "网友推荐①", key: "netizen1", cost: "≈22万", code: "6IL88AC013CE082VBOHIS", note: "网友@AK信仰者 · 原教旨主义", attachments: [ {slot:"🔇",name:"AK制退器",effect:"经典AK后坐控制"},{slot:"🔫",name:"AK原厂枪管",effect:"经典"},{slot:"✋",name:"RPK握把",effect:"AK经典握把"}] },
+      { level: "网友推荐②", key: "netizen2", cost: "≈35万", code: "6IL88AC013CE082VBOHIS", note: "网友@打甲高手 · 特殊弹特化", attachments: [ {slot:"🔇",name:"制退器",effect:"后坐"},{slot:"🔫",name:"精准枪管",effect:"精度"},{slot:"💥",name:"特殊穿甲弹",effect:"2枪碎5级头"}] },
+      { level: "网友推荐③", key: "netizen3", cost: "≈15万", code: "6IL88AC013CE082VBOHIS", note: "网友@新手AK · 超低门槛入门", attachments: [ {slot:"🔇",name:"消焰器",effect:"低成本隐蔽"},{slot:"🔫",name:"标准枪管",effect:"基础"},{slot:"✋",name:"握把",effect:"基础"},{slot:"📦",name:"30发弹匣",effect:"基础"}] }
+    ]
+  },
+  {
+    id: "mcxlt", name: "MCX-LT", nickname: "平民近战T0", type: "射手步枪", tier: "T1",
+    damage: 34, range: "40m", fireRate: 680,
+    modes: ["平民近战", "新手友好", "低成本"],
+    scenario: "低成本满改即能达到T0.5级强度，融化重甲速度快。最适合新手的性价比选择。",
+    baseStats: { damage: 34, range: "40m", fireRate: "680", recoil: "低", mobility: "高", magazine: "30" },
+    tips: "改满成本极低，但近战能力可媲美T0级武器。融化重甲速度惊人。",
+    builds: [
+      { level: "低配", key: "low", cost: "≈20万", code: "6K4S9240CDLKDH311H1JH", note: "", attachments: [ {slot:"🔇",name:"消焰器",effect:"隐蔽"},{slot:"🔫",name:"标准短管",effect:"机动"},{slot:"🔭",name:"红点",effect:"瞄准"},{slot:"📦",name:"20发弹匣",effect:"基础"}] },
+      { level: "中配", key: "mid", cost: "≈28万", code: "6J0F7G00FCDV4UPACJK76", note: "", attachments: [ {slot:"🔇",name:"消焰器",effect:"隐蔽"},{slot:"🔫",name:"短管",effect:"机动性"},{slot:"✋",name:"前握把",effect:"腰射"},{slot:"📦",name:"扩容弹匣",effect:"续航"},{slot:"🔭",name:"红点",effect:"瞄准"},{slot:"🎯",name:"轻量枪托",effect:"速度"}] },
+      { level: "满改", key: "max", cost: "≈80万", code: "6IUQ2CK0CCNN7V1KCQCD1", note: "共振握把加持", attachments: [ {slot:"🔇",name:"战术消焰器",effect:"隐蔽+后坐"},{slot:"🔫",name:"碳纤维短管",effect:"机动拉满"},{slot:"✋",name:"战术前握把",effect:"腰射精度MAX"},{slot:"📦",name:"30发快速扩容",effect:"续航+换弹"},{slot:"🔭",name:"全息镜",effect:"精准跟枪"},{slot:"🎯",name:"超轻量枪托",effect:"移动速度MAX"},{slot:"💡",name:"战术镭射",effect:"腰射+15%"}] },
+      { level: "网友推荐①", key: "netizen1", cost: "≈25万", code: "6K4S9240CDLKDH311H1JH", note: "网友@平民战神 · 超低本配装", attachments: [ {slot:"🔇",name:"消焰器",effect:"低成本"},{slot:"🔫",name:"短管",effect:"机动"},{slot:"✋",name:"握把",effect:"基础"},{slot:"📦",name:"30发弹匣",effect:"容量"}] },
+      { level: "网友推荐②", key: "netizen2", cost: "≈50万", code: "6J0F7G00FCDV4UPACJK76", note: "网友@近战融化者 · 重甲杀手", attachments: [ {slot:"🔇",name:"消焰器",effect:"隐蔽"},{slot:"🔫",name:"短管",effect:"近战"},{slot:"✋",name:"垂直握把",effect:"腰射"},{slot:"📦",name:"30发快速扩容",effect:"换弹快"}] },
+      { level: "网友推荐③", key: "netizen3", cost: "≈90万", code: "6IUQ2CK0CCNN7V1KCQCD1", note: "网友@满改爱好者 · 不差钱版本", attachments: [ {slot:"🔇",name:"消音器",effect:"顶级隐蔽"},{slot:"🔫",name:"碳纤维短管",effect:"顶级机动"},{slot:"✋",name:"战术握把",effect:"顶级腰射"},{slot:"📦",name:"30发快速扩容",effect:"顶级续航"}] }
+    ]
+  },
+  {
+    id: "pkm", name: "PKM", nickname: "火力压制之王", type: "轻机枪", tier: "T1",
+    damage: 35, range: "60m", fireRate: 650,
+    modes: ["团队架点", "火力压制", "中距离"],
+    scenario: "顶级火力压制能力，大弹鼓续航拉满。性价比极高的团队支援武器。",
+    baseStats: { damage: 35, range: "60m", fireRate: "650", recoil: "中高", mobility: "低", magazine: "100" },
+    tips: "100发弹鼓持续火力压制，团队防守核心武器。架枪后后坐力大幅降低。",
+    builds: [
+      { level: "低配", key: "low", cost: "≈25万", code: "6HM76O40B12QASUQB4J4K", note: "", attachments: [ {slot:"🔇",name:"标准制退器",effect:"连发控制"},{slot:"🔫",name:"标准枪管",effect:"基础性能"},{slot:"📐",name:"标准脚架",effect:"架枪稳定"},{slot:"📦",name:"75发弹鼓",effect:"基础续航"},{slot:"🔭",name:"红点",effect:"瞄准"}] },
+      { level: "中配", key: "mid", cost: "≈45万", code: "6HM76O40B12QASUQB4J4K", note: "", attachments: [ {slot:"🔇",name:"制退器",effect:"连发控制"},{slot:"🔫",name:"重型枪管",effect:"精度+射程"},{slot:"📐",name:"双脚架",effect:"架枪稳定"},{slot:"📦",name:"100发弹鼓",effect:"超长续航"},{slot:"🔭",name:"中倍镜",effect:"中距瞄具"}] },
+      { level: "满改", key: "max", cost: "≈65万", code: "6HM76O40B12QASUQB4J4K", note: "团队支援满配", attachments: [ {slot:"🔇",name:"PKM专用制退器",effect:"连发后坐清零"},{slot:"🔫",name:"PKM重机枪枪管",effect:"精度+射程"},{slot:"📐",name:"重型脚架",effect:"架枪绝对稳定"},{slot:"📦",name:"100发快速弹鼓",effect:"超长续航+快速换弹"},{slot:"🔭",name:"4倍战术镜",effect:"中距精准压制"},{slot:"🎯",name:"PKM重机枪枪托",effect:"后坐控制MAX"}] },
+      { level: "网友推荐①", key: "netizen1", cost: "≈35万", code: "6HM76O40B12QASUQB4J4K", note: "网友@火力压制者 · 团队支援型", attachments: [ {slot:"🔇",name:"制退器",effect:"连发控制"},{slot:"🔫",name:"重型枪管",effect:"精度"},{slot:"📐",name:"脚架",effect:"架枪"},{slot:"📦",name:"100发弹鼓",effect:"持续火力"}] },
+      { level: "网友推荐②", key: "netizen2", cost: "≈55万", code: "6HM76O40B12QASUQB4J4K", note: "网友@防守专家 · 架点专用型", attachments: [ {slot:"🔇",name:"制退器",effect:"后坐控制"},{slot:"🔫",name:"重管",effect:"远距精度"},{slot:"📐",name:"重型脚架",effect:"绝对稳定"},{slot:"🔭",name:"6倍镜",effect:"远距架点"}] },
+      { level: "网友推荐③", key: "netizen3", cost: "≈20万", code: "6HM76O40B12QASUQB4J4K", note: "网友@新手机枪手 · 入门轻量型", attachments: [ {slot:"🔇",name:"消焰器",effect:"隐蔽"},{slot:"🔫",name:"标准枪管",effect:"减重"},{slot:"📐",name:"轻型脚架",effect:"架枪"},{slot:"📦",name:"75发弹鼓",effect:"减重"}] }
+    ]
+  },
+  {
+    id: "qjb201", name: "QJB201", nickname: "中距压制", type: "轻机枪", tier: "T1",
+    damage: 34, range: "55m", fireRate: 680,
+    modes: ["团队架点", "中距离压制", "支援火力"],
+    scenario: "中距离压制强，续航拉满。高速导气版本射速极快且稳定性好。",
+    baseStats: { damage: 34, range: "55m", fireRate: "680", recoil: "中等", mobility: "低", magazine: "75" },
+    tips: "高速导气版是隐藏T0.5级，爆头伤害倍率高。团队防守必备火力支援。",
+    builds: [
+      { level: "低配", key: "low", cost: "≈17万", code: "6HJ8HEO07G8S9A1C445HN", note: "", attachments: [ {slot:"🔇",name:"消焰器",effect:"隐蔽压制"},{slot:"🔫",name:"标准枪管",effect:"基础"},{slot:"📐",name:"标准脚架",effect:"架枪"},{slot:"📦",name:"50发弹鼓",effect:"基础"},{slot:"🔭",name:"红点",effect:"瞄准"}] },
+      { level: "中配", key: "mid", cost: "≈25万", code: "6HJ8HDG07G8S9A1C445HN", note: "", attachments: [ {slot:"🔇",name:"消焰器",effect:"隐蔽压制"},{slot:"🔫",name:"长枪管",effect:"中距精度"},{slot:"📐",name:"双脚架",effect:"架枪稳定"},{slot:"📦",name:"75发弹鼓",effect:"续航"},{slot:"🔭",name:"全息镜",effect:"中距瞄准"}] },
+      { level: "满改", key: "max", cost: "≈50万", code: "6IL8DCS013CE082VBOHIS", note: "高速导气满改", attachments: [ {slot:"🔇",name:"战术消焰器",effect:"隐蔽+后坐"},{slot:"🔫",name:"高速导气枪管",effect:"射速+稳定性"},{slot:"📐",name:"轻型脚架",effect:"架枪后坐清零"},{slot:"📦",name:"100发快速弹鼓",effect:"超大续航"},{slot:"🔭",name:"3倍弹道镜",effect:"中远精准"},{slot:"🎯",name:"重型稳定枪托",effect:"后坐控制MAX"}] },
+      { level: "网友推荐①", key: "netizen1", cost: "≈30万", code: "6HJ8HEO07G8S9A1C445HN", note: "网友@机枪新人 · 高速导气入门", attachments: [ {slot:"🔇",name:"消焰器",effect:"隐蔽"},{slot:"🔫",name:"高速导气枪管",effect:"射速提升"},{slot:"📐",name:"脚架",effect:"架枪"},{slot:"📦",name:"75发弹鼓",effect:"续航"}] },
+      { level: "网友推荐②", key: "netizen2", cost: "≈42万", code: "6HJ8HDG07G8S9A1C445HN", note: "网友@中距压制王 · 火力覆盖型", attachments: [ {slot:"🔇",name:"制退器",effect:"后坐控制"},{slot:"🔫",name:"高速导气重管",effect:"射速+精度"},{slot:"📐",name:"轻型脚架",effect:"架枪稳定"},{slot:"📦",name:"100发弹鼓",effect:"覆盖火力"}] },
+      { level: "网友推荐③", key: "netizen3", cost: "≈22万", code: "6HJ8HEO07G8S9A1C445HN", note: "网友@省钱小能手 · 极简配装", attachments: [ {slot:"🔇",name:"消焰器",effect:"低成本"},{slot:"🔫",name:"标准枪管",effect:"基础"},{slot:"📐",name:"脚架",effect:"架枪"},{slot:"📦",name:"50发弹鼓",effect:"省钱"}] }
+    ]
+  },
+  // ============ T1 新增：链锯M249、高速导气腾龙 ===============
+  {
+    id: "m249", name: "M249 链锯", nickname: "链锯套装 · 散射王者", type: "轻机枪", tier: "T1",
+    damage: 36, range: "50m", fireRate: 750,
+    modes: ["团队火力", "持续压制", "高射速"],
+    scenario: "链锯套件加持，散射机制独特，输出能力追平AS Val。射速极快，中近距离压制力强。",
+    baseStats: { damage: 36, range: "50m", fireRate: "750", recoil: "高", mobility: "低", magazine: "100" },
+    tips: "链锯套件限制改装选项，但散射机制让近战输出爆炸。团队火力核心。",
+    builds: [
+      { level: "低配", key: "low", cost: "≈30万", code: "6HM76O40B12QASUQB4J4K", note: "链锯套件基础", attachments: [ {slot:"🔇",name:"标准制退器",effect:"连发控制"},{slot:"🔫",name:"标准枪管",effect:"基础"},{slot:"📐",name:"标准脚架",effect:"架枪"},{slot:"📦",name:"100发弹鼓",effect:"基础续航"}] },
+      { level: "中配", key: "mid", cost: "≈50万", code: "6HM76O40B12QASUQB4J4K", note: "散射强化型", attachments: [ {slot:"🔇",name:"制退器",effect:"后坐控制"},{slot:"🔫",name:"M249重管",effect:"精度+散射"},{slot:"📐",name:"双脚架",effect:"架枪稳定"},{slot:"📦",name:"100发弹鼓",effect:"持续火力"},{slot:"🔭",name:"3倍镜",effect:"中距"}] },
+      { level: "满改", key: "max", cost: "≈70万", code: "6HM76O40B12QASUQB4J4K", note: "链锯满配散射流", attachments: [ {slot:"🔇",name:"M249专用制退器",effect:"连发后坐控制"},{slot:"🔫",name:"M249重机枪枪管",effect:"散射+精度"},{slot:"📐",name:"重型脚架",effect:"架枪绝对稳定"},{slot:"📦",name:"100发快速弹鼓",effect:"持续火力"},{slot:"🔭",name:"4倍镜",effect:"中距压制"},{slot:"🎯",name:"M249重枪托",effect:"后坐控制"}] },
+      { level: "网友推荐①", key: "netizen1", cost: "≈45万", code: "6HM76O40B12QASUQB4J4K", note: "网友@链锯达人 · 散射特化", attachments: [ {slot:"🔇",name:"制退器",effect:"后坐控制"},{slot:"🔫",name:"M249重管",effect:"散射强化"},{slot:"📐",name:"脚架",effect:"架枪"},{slot:"📦",name:"100发弹鼓",effect:"无限火力"}] },
+      { level: "网友推荐②", key: "netizen2", cost: "≈60万", code: "6HM76O40B12QASUQB4J4K", note: "网友@团队支援 · 火力覆盖型", attachments: [ {slot:"🔇",name:"制退器",effect:"连发控制"},{slot:"🔫",name:"重管",effect:"远距精度"},{slot:"📐",name:"重型脚架",effect:"绝对稳定"},{slot:"📦",name:"100发弹鼓",effect:"覆盖火力"}] },
+      { level: "网友推荐③", key: "netizen3", cost: "≈35万", code: "6HM76O40B12QASUQB4J4K", note: "网友@新手机枪手 · 入门轻量", attachments: [ {slot:"🔇",name:"消焰器",effect:"隐蔽"},{slot:"🔫",name:"标准枪管",effect:"基础"},{slot:"📐",name:"轻型脚架",effect:"架枪"},{slot:"📦",name:"75发弹鼓",effect:"基础"}] }
+    ]
+  },
+  {
+    id: "tenglong", name: "腾龙（高速导气）", nickname: "高速导气 · 射速怪兽", type: "突击步枪", tier: "T1",
+    damage: 33, range: "45m", fireRate: 950,
+    modes: ["高射速", "中近距离", "性价比"],
+    scenario: "高速导气版本射速极快，950射速+5.56口径，爆头倍率比其他武器更高，中距离压制能力非常强。",
+    baseStats: { damage: 33, range: "45m", fireRate: "950", recoil: "中等", mobility: "高", magazine: "30" },
+    tips: "高速导气版是隐藏T0.5级，950射速配合5.56弹药，近战融化重甲速度惊人。",
+    builds: [
+      { level: "低配", key: "low", cost: "≈22万", code: "6JOUJ440B0GKDDOTE9T6Q", note: "高速导气入门", attachments: [ {slot:"🔇",name:"消焰器",effect:"隐蔽"},{slot:"🔫",name:"标准枪管",effect:"基础"},{slot:"✋",name:"垂直握把",effect:"后坐控制"},{slot:"📦",name:"30发弹匣",effect:"基础"},{slot:"🔭",name:"红点",effect:"快速瞄准"}] },
+      { level: "中配", key: "mid", cost: "≈35万", code: "6JOUJFS0B0GKDDOTE9T6Q", note: "高速导气平衡型", attachments: [ {slot:"🔇",name:"战术消焰器",effect:"隐蔽+后坐"},{slot:"🔫",name:"高速导气枪管",effect:"射速+稳定性"},{slot:"✋",name:"斜角握把",effect:"操控+后坐"},{slot:"📦",name:"扩容弹匣",effect:"续航"},{slot:"🔭",name:"全息镜",effect:"中近快速"},{slot:"🎯",name:"轻量枪托",effect:"速度"}] },
+      { level: "满改", key: "max", cost: "≈55万", code: "6JOUKN00B0GKDDOTE9T6Q", note: "高速导气满配", attachments: [ {slot:"🔇",name:"战术消焰器",effect:"后坐+隐蔽双优"},{slot:"🔫",name:"高速导气重型枪管",effect:"射速+精度拉满"},{slot:"✋",name:"斜角握把",effect:"操控+后坐优化"},{slot:"📦",name:"快速扩容弹匣",effect:"超大容量+快速换弹"},{slot:"🔭",name:"3倍弹道镜",effect:"中远精准"},{slot:"🎯",name:"稳定战术枪托",effect:"后坐控制MAX"},{slot:"💡",name:"蓝激光",effect:"腰射精度"}] },
+      { level: "网友推荐①", key: "netizen1", cost: "≈30万", code: "6JOUJ440B0GKDDOTE9T6Q", note: "网友@高速导气爱好者 · 射速特化", attachments: [ {slot:"🔇",name:"消焰器",effect:"隐蔽"},{slot:"🔫",name:"高速导气枪管",effect:"射速提升"},{slot:"✋",name:"垂直握把",effect:"压枪"},{slot:"📦",name:"30发弹匣",effect:"基础"},{slot:"🔭",name:"红点镜",effect:"快速秒人"}] },
+      { level: "网友推荐②", key: "netizen2", cost: "≈45万", code: "6JOUJFS0B0GKDDOTE9T6Q", note: "网友@中距控枪 · 均衡输出型", attachments: [ {slot:"🔇",name:"战术消焰器",effect:"隐蔽+后坐"},{slot:"🔫",name:"高速导气枪管",effect:"射速+精度"},{slot:"✋",name:"斜角握把",effect:"操控"},{slot:"📦",name:"扩容弹匣",effect:"续航"},{slot:"🔭",name:"3倍镜",effect:"中距"}] },
+      { level: "网友推荐③", key: "netizen3", cost: "≈25万", code: "6JOUJ440B0GKDDOTE9T6Q", note: "网友@性价比战神 · 低成本高速版", attachments: [ {slot:"🔇",name:"消焰器",effect:"低成本隐蔽"},{slot:"🔫",name:"高速导气枪管",effect:"射速核心"},{slot:"✋",name:"握把",effect:"基础"},{slot:"📦",name:"30发弹匣",effect:"基础"}] }
+    ]
+  }
+];
+// ==================== RENDERER LOGIC ====================
+function syncSeasonCounts() {
+  const totalWeapons = weapons.length;
+  const totalBuilds = weapons.reduce((sum, weapon) => sum + weapon.builds.length, 0);
+  const tierCounts = weapons.reduce((acc, weapon) => {
+    acc[weapon.tier] = (acc[weapon.tier] || 0) + 1;
+    return acc;
+  }, {});
+  const heroStats = document.querySelectorAll('.hero-stat .num');
+  if (heroStats[0]) heroStats[0].textContent = totalWeapons;
+  if (heroStats[1]) heroStats[1].textContent = totalBuilds;
+  document.querySelectorAll('#tier-section .tier-btn').forEach((btn) => {
+    const count = btn.querySelector('.count');
+    if (!count) return;
+    const tier = btn.dataset.tier;
+    count.textContent = tier === 'all' ? totalWeapons : (tierCounts[tier] || 0);
+  });
+}
+
+const weaponGrid = document.getElementById('weaponGrid');
+const noResults = document.getElementById('noResults');
+const searchInput = document.getElementById('searchInput');
+const tierBtns = document.querySelectorAll('.tier-btn');
+const modalOverlay = document.getElementById('modalOverlay');
+const modalBody = document.getElementById('modalBody');
+let currentTier = 'all';
+let currentSearch = '';
+function getTierClass(tier) {
+  if (tier === 'T0') return 'tier-t0';
+  if (tier === 'T0.5') return 'tier-t05';
+  return 'tier-t1';
+}
+function renderWeaponCard(w) {
+  const buildPills = w.builds.map(b => `<span class="card-build-pill ${b.key}">${b.level}</span>`).join('');
+  return `
+    <div class="weapon-card" data-id="${w.id}" data-tier="${w.tier}" onclick="openModal('${w.id}')">
+      <div class="card-header">
+        <div class="card-weapon-type">${w.type}</div>
+        <div class="card-tier-badge ${getTierClass(w.tier)}">${w.tier}</div>
+      </div>
+      <div class="card-weapon-name">${w.name}</div>
+      <div class="card-weapon-nickname">${w.nickname}</div>
+      <div class="card-stats-row">
+        <div class="card-stat"><div class="stat-num">${w.damage}</div><div class="stat-label">基础伤害</div></div>
+        <div class="card-stat"><div class="stat-num">${w.range}</div><div class="stat-label">优势射程</div></div>
+        <div class="card-stat"><div class="stat-num">${w.fireRate}</div><div class="stat-label">射速 RPM</div></div>
+      </div>
+      <div class="card-build-pills">${buildPills}</div>
+      <div class="card-footer">
+        <div class="card-mode-tags">
+          ${w.modes.slice(0,2).map(m => `<span class="card-mode-tag">${m}</span>`).join('')}
+          ${w.modes.length > 2 ? `<span class="card-mode-tag">+${w.modes.length-2}</span>` : ''}
+        </div>
+        <span class="card-detail-btn">查看方案 →</span>
+      </div>
+    </div>
+  `;
+}
+function filterWeapons() {
+  let filtered = weapons;
+  if (currentTier !== 'all') filtered = filtered.filter(w => w.tier === currentTier);
+  if (currentSearch) {
+    const s = currentSearch.toLowerCase();
+    filtered = filtered.filter(w =>
+      w.name.toLowerCase().includes(s) ||
+      w.nickname.toLowerCase().includes(s) ||
+      w.type.toLowerCase().includes(s) ||
+      w.modes.some(m => m.toLowerCase().includes(s)) ||
+      w.builds.some(b => b.attachments.some(a => a.name.toLowerCase().includes(s)))
+    );
+  }
+  noResults.style.display = filtered.length === 0 ? 'block' : 'none';
+  weaponGrid.innerHTML = filtered.length ? filtered.map(renderWeaponCard).join('') : '';
+}
+tierBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    tierBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    currentTier = btn.dataset.tier;
+    filterWeapons();
+  });
+});
+searchInput.addEventListener('input', () => { currentSearch = searchInput.value.trim(); filterWeapons(); });
+// ==================== MODAL WITH 6 BUILD TABS ====================
+function openModal(id) {
+  const w = weapons.find(w => w.id === id);
+  if (!w) return;
+  const buildTabs = w.builds.map((b, i) => `
+    <div class="build-tab ${b.key} ${i === 2 ? 'active' : ''}" onclick="switchBuild('${w.id}', ${i})" id="buildTab_${w.id}_${i}">
+      <div class="build-level">${b.level}</div>
+      <div class="build-cost">${b.cost}</div>
+    </div>
+  `).join('');
+  modalBody.innerHTML = `
+    <div class="modal-weapon-header">
+      <div class="modal-weapon-info">
+        <h2>${w.name}</h2>
+        <span class="modal-build-tag ${getTierClass(w.tier)}">${w.tier} 梯队</span>
+      </div>
+      <div style="font-size:15px;color:var(--text-secondary);margin-top:4px;">${w.nickname} · ${w.type}</div>
+    </div>
+    <div class="modal-stats-grid">
+      <div class="modal-stat-card"><div class="mstat-num">${w.baseStats.damage}</div><div class="mstat-label">基础伤害</div></div>
+      <div class="modal-stat-card"><div class="mstat-num">${w.baseStats.range}</div><div class="mstat-label">优势射程</div></div>
+      <div class="modal-stat-card"><div class="mstat-num">${w.baseStats.fireRate}</div><div class="mstat-label">射速 RPM</div></div>
+      <div class="modal-stat-card"><div class="mstat-num">${w.baseStats.recoil}</div><div class="mstat-label">后坐力</div></div>
+      <div class="modal-stat-card"><div class="mstat-num">${w.baseStats.mobility}</div><div class="mstat-label">机动性</div></div>
+      <div class="modal-stat-card"><div class="mstat-num">${w.baseStats.magazine}</div><div class="mstat-label">弹匣容量</div></div>
+    </div>
+    <div class="modal-section-title"><span class="dot"></span> 使用场景</div>
+    <p style="color:var(--text-secondary);margin-bottom:20px;line-height:1.8;">${w.scenario}</p>
+    <div class="modal-section-title"><span class="dot"></span> 适用模式</div>
+    <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px;">
+      ${w.modes.map(m => `<span class="card-mode-tag" style="font-size:13px;padding:6px 14px;">${m}</span>`).join('')}
+    </div>
+    <div class="modal-section-title"><span class="dot"></span> 改装方案选择（共${w.builds.length}套）</div>
+    <div class="build-tabs">${buildTabs}</div>
+    <div id="buildContent_${w.id}"></div>
+    <div class="modal-section-title"><span class="dot"></span> 使用技巧</div>
+    <div style="padding:14px 18px;background:rgba(240,160,80,0.05);border-radius:var(--radius-sm);border:1px solid rgba(240,160,80,0.1);color:var(--accent);line-height:1.8;">
+      💡 ${w.tips}
+    </div>
+  `;
+  modalOverlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  modalBody.dataset.weaponId = w.id;
+  window._modalWeapons = window._modalWeapons || {};
+  window._modalWeapons[w.id] = w;
+  renderBuildContent(w, 2);
+}
+function switchBuild(weaponId, buildIndex) {
+  const w = window._modalWeapons[weaponId];
+  if (!w) return;
+  const tabs = document.querySelectorAll(`[id^="buildTab_${weaponId}_"]`);
+  tabs.forEach(t => t.classList.remove('active'));
+  const activeTab = document.getElementById(`buildTab_${weaponId}_${buildIndex}`);
+  if (activeTab) activeTab.classList.add('active');
+  renderBuildContent(w, buildIndex);
+}
+function renderBuildContent(w, buildIndex) {
+  const b = w.builds[buildIndex];
+  if (!b) return;
+  const contentDiv = document.getElementById(`buildContent_${w.id}`);
+  if (!contentDiv) return;
+  contentDiv.innerHTML = `
+    <div class="modal-section-title" style="font-size:15px;margin-top:0;padding-top:0;">
+      <span class="dot"></span> ${b.level}配置 · ${b.cost}${b.note ? ' · ' + b.note : ''}
+    </div>
+    <div class="build-code-block">
+      ${b.code
+        ? `<code id="buildCode_${w.id}_${buildIndex}">${b.code}</code><button class="copy-btn" id="copyBtn_${w.id}_${buildIndex}" onclick="copyBuildCode('${w.id}', ${buildIndex})">📋 复制</button>`
+        : `<code class="no-code">该方案暂无分享码（手工搭配方案）</code><button class="copy-btn hidden">📋 复制</button>`
+      }
+    </div>
+    <div class="modal-section-title" style="font-size:15px;">
+      <span class="dot"></span> 配件清单
+    </div>
+    <div class="attachment-list">
+      ${b.attachments.map(a => `
+        <div class="attachment-item">
+          <div class="att-slot">${a.slot}</div>
+          <div class="att-info">
+            <div class="att-name">${a.name}</div>
+            <div class="att-effect">${a.effect}</div>
+          </div>
+        </div>
+      `).join('')}
+    </div>
+  `;
+}
+function copyBuildCode(weaponId, buildIndex) {
+  const w = window._modalWeapons[weaponId];
+  if (!w) return;
+  const code = w.builds[buildIndex].code;
+  if (!code) return;
+  navigator.clipboard.writeText(code).then(() => {
+    const btn = document.getElementById(`copyBtn_${weaponId}_${buildIndex}`);
+    if (!btn) return;
+    btn.textContent = '✓ 已复制';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = '📋 复制'; btn.classList.remove('copied'); }, 2000);
+  });
+}
+function closeModal() {
+  modalOverlay.classList.remove('open');
+  document.body.style.overflow = '';
+}
+modalOverlay.addEventListener('click', (e) => { if (e.target === modalOverlay) closeModal(); });
+// Init
+syncSeasonCounts();
+filterWeapons();
+
+// ==================== SECTION SWITCHING ====================
+const __hero  = document.querySelector('.hero');
+const __sec = {
+  builds: document.getElementById('build-section'),
+  tier:   document.getElementById('tierRankSection'),
+  codes:  document.getElementById('codeLibSection')
+};
+const __nav = document.querySelectorAll('.nav-links a[data-section]');
+let __tierDone = false, __codeDone = false;
+
+function switchSection(key) {
+  // 隐藏/显示 hero 区域
+  if(__hero) __hero.style.display = (key === 'builds') ? 'block' : 'none';
+  // 隐藏所有内容板块
+  Object.values(__sec).forEach(function(s) { if(s) s.style.display = 'none'; });
+  // 显示当前板块
+  if(__sec[key]) __sec[key].style.display = 'block';
+  // 更新导航高亮
+  __nav.forEach(function(a) { a.classList.toggle('active', a.dataset.section === key); });
+  closeModal();
+  if(key === 'tier' && !__tierDone) { renderTierRank(); __tierDone = true; }
+  if(key === 'codes' && !__codeDone) { renderCodeLib(); __codeDone = true; }
+  // 滚动到顶部
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+__nav.forEach(a => {
+  a.addEventListener('click', function(e) { e.preventDefault(); switchSection(a.dataset.section); });
+});
+
+function renderTierRank() {
+  const el = document.getElementById('tierRankContent');
+  const tiers = [
+    { key: 'T0',   label: 'T0 · 版本真神（版本答案）', desc: '当前版本最强武器，各场景通吃，优先级最高', cls: 't0' },
+    { key: 'T0.5', label: 'T0.5 · 强力竞争（非常推荐）', desc: '综合性能极强，特定场景可媲美T0，值得投资', cls: 't05' },
+    { key: 'T1',   label: 'T1 · 可靠主力（性价比首选）', desc: '性能稳定可靠，获取门槛低，适合多数玩家', cls: 't1' }
+  ];
+  el.innerHTML = tiers.map(t => {
+    const ws = weapons.filter(function(w) { return w.tier === t.key; });
+    return '<div class="tier-rank-group">' +
+      '<div class="tier-rank-header">' +
+        '<span class="tier-rank-badge ' + t.cls + '">' + t.key + '</span>' +
+        '<div><div style="font-size:16px;font-weight:700;color:var(--text);">' + t.label + '</div>' +
+        '<div class="tier-rank-desc">' + t.desc + ' · 共 ' + ws.length + ' 把</div></div>' +
+      '</div>' +
+      '<div class="tier-rank-grid">' +
+        ws.map(function(w) { return '<div class="tier-rank-card" onclick="openModal(\'' + w.id + '\')">' +
+          '<div class="weapon-name">' + w.name + '</div>' +
+          '<div class="weapon-type">' + w.type + '</div>' +
+          '<div class="weapon-damage">伤害 ' + w.damage + ' · ' + w.range + '</div>' +
+          '<div class="weapon-nickname">' + w.nickname + '</div>' +
+        '</div>'; }).join('') +
+      '</div></div>';
+  }).join('');
+}
+
+// ==================== CODE LIBRARY ====================
+var __codeRows = [], __dispRows = [], __curTier = 'all';
+
+function renderCodeLib() {
+  __codeRows = [];
+  weapons.forEach(function(w) {
+    w.builds.forEach(function(b, i) {
+      __codeRows.push({ weapon: w, build: b, buildIndex: i });
+    });
+  });
+  filterCodeLib('all');
+}
+
+function filterCodeLib(tier) {
+  if(tier) __curTier = tier;
+  var q = (document.getElementById('codeLibSearch')||{}).value || '';
+  var s = q.toLowerCase();
+  var rows = __codeRows;
+  if(__curTier !== 'all') rows = rows.filter(function(r) { return r.weapon.tier === __curTier; });
+  if(s) rows = rows.filter(function(r) {
+    return r.weapon.name.toLowerCase().indexOf(s) >= 0 ||
+      r.weapon.nickname.toLowerCase().indexOf(s) >= 0 ||
+      r.build.level.toLowerCase().indexOf(s) >= 0 ||
+      r.build.attachments.some(function(a) { return a.name.toLowerCase().indexOf(s) >= 0; }) ||
+      (r.build.code && r.build.code.toLowerCase().indexOf(s) >= 0);
+  });
+  document.querySelectorAll('#codeLibFilters .tier-btn').forEach(function(b) { b.classList.toggle('active', b.dataset.tier === __curTier); });
+  var tb = document.getElementById('codeLibBody');
+  var em = document.getElementById('codeLibEmpty');
+  if(!rows.length) { tb.innerHTML = ''; em.style.display = 'block'; return; }
+  em.style.display = 'none';
+  __dispRows = rows;
+  tb.innerHTML = rows.map(function(r, idx) {
+    var w = r.weapon, b = r.build;
+    var tr = '<tr>' +
+      '<td><span class="build-tag ' + b.key + '" style="font-size:12px;padding:3px 10px;border-radius:10px;">' + w.tier + '</span></td>' +
+      '<td style="font-weight:600;color:var(--text);">' + w.name + '</td>' +
+      '<td><span class="build-tag ' + b.key + '">' + b.level + '</span>' + (b.note ? '<span style="font-size:11px;color:var(--text-muted);margin-left:4px;">' + b.note + '</span>' : '') + '</td>' +
+      '<td style="color:var(--text-secondary);">' + b.cost + '</td>' +
+      '<td>';
+    if(b.code) {
+      tr += '<code id="codeCell_' + idx + '" style="font-size:12px;">' + b.code + '</code>';
+    } else {
+      tr += '<span style="color:var(--text-muted);font-style:italic;font-size:12px;">暂无分享码</span>';
+    }
+    tr += '</td><td>';
+    if(b.code) {
+      tr += '<button class="copy-btn-sm" id="codeCopyBtn_' + idx + '" onclick="copyCodeLibRow(' + idx + ')">📋 复制</button>';
+    }
+    tr += '</td></tr>';
+    return tr;
+  }).join('');
+  var allC = __codeRows.length;
+  document.getElementById('codeCountAll').textContent = allC;
+  document.getElementById('codeCountT0').textContent  = __codeRows.filter(function(r) { return r.weapon.tier === 'T0'; }).length;
+  document.getElementById('codeCountT05').textContent = __codeRows.filter(function(r) { return r.weapon.tier === 'T0.5'; }).length;
+  document.getElementById('codeCountT1').textContent  = __codeRows.filter(function(r) { return r.weapon.tier === 'T1'; }).length;
+}
+
+function copyCodeLibRow(idx) {
+  var r = __dispRows[idx];
+  if(!r || !r.build.code) return;
+  navigator.clipboard.writeText(r.build.code).then(function() {
+    var btn = document.getElementById('codeCopyBtn_' + idx);
+    if(!btn) return;
+    btn.textContent = '✓ 已复制'; btn.classList.add('copied');
+    setTimeout(function() { btn.textContent = '📋 复制'; btn.classList.remove('copied'); }, 2000);
+  });
+}
+
+function escapeHtml(value) {
+  return String(value || '').replace(/[&<>"']/g, function(ch) {
+    return ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[ch];
+  });
+}
+
+function formatLatestDate(value) {
+  if(!value) return '';
+  var d = new Date(value);
+  if(Number.isNaN(d.getTime())) return value;
+  return d.toLocaleDateString('zh-CN', { month: '2-digit', day: '2-digit' });
+}
+
+async function loadLatestInfo() {
+  var grid = document.getElementById('latestGrid');
+  var meta = document.getElementById('latestMeta');
+  if(!grid || !meta) return;
+  try {
+    var res = await fetch('data/latest.json', { cache: 'no-store' });
+    if(!res.ok) throw new Error('latest.json not ready');
+    var payload = await res.json();
+    var items = Array.isArray(payload.items) ? payload.items.slice(0, 6) : [];
+    if(!items.length) throw new Error('empty latest data');
+    grid.innerHTML = items.map(function(item) {
+      var url = escapeHtml(item.url || '#');
+      var source = escapeHtml(item.source || '网络来源');
+      var title = escapeHtml(item.title || '未命名资讯');
+      var summary = escapeHtml(item.summary || '点击查看原文。');
+      var date = escapeHtml(formatLatestDate(item.publishedAt || item.fetchedAt));
+      return '<a class="latest-card" href="' + url + '" target="_blank" rel="noopener noreferrer">' +
+        '<div class="latest-source"><span>' + source + '</span><span>' + date + '</span></div>' +
+        '<h3>' + title + '</h3><p>' + summary + '</p></a>';
+    }).join('');
+    var updated = payload.generatedAt ? new Date(payload.generatedAt).toLocaleString('zh-CN') : '未知';
+    meta.textContent = '最近更新：' + updated + ' · 来源 ' + (payload.sources || []).length + ' 个';
+  } catch (err) {
+    meta.textContent = '尚未生成自动更新数据';
+  }
+}
+
+loadLatestInfo();
+
+// Init - default to builds view
+switchSection('builds');
+</script>
+</body>
+</html>

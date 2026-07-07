@@ -1,0 +1,19 @@
+{
+  "maxItems": 24,
+  "sources": [
+    {
+      "name": "示例 RSS 源",
+      "type": "rss",
+      "url": "https://example.com/feed.xml",
+      "enabled": false,
+      "notes": "把这里替换成官方公告、社区文章或攻略站 RSS 地址。"
+    },
+    {
+      "name": "示例网页源",
+      "type": "html",
+      "url": "https://example.com/news",
+      "enabled": false,
+      "notes": "没有 RSS 时可先抓网页标题和描述；复杂列表页建议改用 RSS/API。"
+    }
+  ]
+}
